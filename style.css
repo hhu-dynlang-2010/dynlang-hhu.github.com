@@ -1,0 +1,31 @@
+
+a:link { 
+        text-decoration: underline; 
+        color: #0062c8;
+        }
+a:visited { 
+        text-decoration: underline; 
+        color: #0062c0;
+        }
+
+body{
+        background-color:#a8c6db;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
+}
+
+.pre {
+    font-size: 110%
+}
+
+
+h1.title {vertical-align:bottom;
+        margin-top:3px;
+        padding:16px;
+        margin-left:200px;
+        background-image:url("hhu3.png");
+        height:95px;
+        background-repeat:no-repeat;
+
+        color:#fff;
+        }
+
