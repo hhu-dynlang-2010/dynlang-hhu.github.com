@@ -20,8 +20,11 @@ def make_pdf(basename):
         os.remove("%s.%s" % (basename, suffix))
 
 def recent_output(dir, input, output):
-    return (os.stat(os.path.join(dir, input)).st_mtime < 
-            os.stat(os.path.join(dir, output)).st_mtime)
+    try:
+        return (os.stat(os.path.join(dir, input)).st_mtime < 
+                os.stat(os.path.join(dir, output)).st_mtime)
+    except OSError:
+        return False
            
 
 def process(l):
@@ -50,10 +53,18 @@ def process(l):
                     continue
                 cmd = 'rst2html.py --input-encoding=utf8 --output-encoding=utf8 --stylesheet-path=style.css %s.txt %s' % (purebasename, output)
         elif suffix == 'py' and purebasename not in ["rebuild", "rst2beamer"]:
-            output = fullpath + ".html"
+            output = basename + ".html"
             if recent_output(dir, basename, output):
                 print "building of %s not necessary" % (output, )
             cmd = 'pygmentize -l %s -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (suffix, fullpath, output)
+        elif suffix == "dot":
+            output = purebasename + ".pdf"
+            print output
+            if recent_output(dir, basename, output):
+                print "building of %s not necessary" % (output, )
+                continue
+            epsname = os.path.join(dir, purebasename + ".eps")
+            cmd = 'dot -Teps %s -o %s && epstopdf %s' % (fullpath, epsname, epsname)
         else:
             continue
         print '*', cmd
