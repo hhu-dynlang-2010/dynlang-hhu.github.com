@@ -1,0 +1,92 @@
+digraph G {
+    
+    node [shape=box];
+
+    subgraph cluster_meta {
+        label = "meta types";
+        labeljust = "r";
+        style = filled;
+        color = lightgrey;
+        type;
+        MyType;
+        MyType -> type [style=dashed, color=red, minlen=6];
+
+    }
+    subgraph cluster_types {
+        label = "types";
+        labeljust = "r";
+        style = filled;
+        color = lightgrey;
+        object;
+        int;
+        str;
+        unicode;
+        basestring;
+        A;
+        B;
+        C;
+
+        int -> object [style=dashed, color=red];
+        str -> basestring [style=dashed, color=red];
+        unicode -> basestring [style=dashed, color=red, minlen=2];
+        basestring -> object [style=dashed, color=red];
+        A -> object [style=dashed, color=red, minlen=4];
+        B -> A [style=dashed, color=red];
+        C -> object [style=dashed, color=red, minlen=6];
+    }
+
+    labeljust = "r";
+    int1 [label="1"];
+    str1 [label="'hello'"];
+    unicode1 [label="u'world'"];
+    a;
+    b;
+    c;
+
+    edge [constraint=False];
+
+    C -> MyType;
+    object -> type;
+    type -> type;
+    type -> object [style=dashed, color=red];
+
+    int1 -> int;
+    //int -> type;
+
+    str1 -> str;
+    //str -> type;
+    //basestring -> type;
+
+    unicode1 -> unicode;
+    //unicode -> type;
+
+    a -> A;
+    //A -> type;
+
+    b -> B;
+    //B -> type;
+
+    c -> C;
+
+
+    edge [constraint=True, style=invis];
+    c -> b;
+    b -> a;
+    a -> unicode1;
+    unicode1 -> str1;
+    str1 -> int1;
+    int1 -> object;
+
+    edge [style=solid];
+    inst [label="is an instance of", color=white];
+    inst -> empty1;
+    empty1 [style=invis];
+
+    empty1 -> subcl [style=invis];
+
+    subcl [label="is a subclass of", color=white];
+    subcl -> empty2 [style=dashed, color=red];
+    empty2 [style=invis];
+
+    
+}
