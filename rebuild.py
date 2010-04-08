@@ -1,4 +1,5 @@
 import os
+import os.path
 
 def make_pdf(basename):
     cmd = './rst2beamer.py %s.txt > %s.latex' % (basename, basename)
@@ -18,10 +19,8 @@ def make_pdf(basename):
     for suffix in "aux log nav out toc snm".split():
         os.remove("%s.%s" % (basename, suffix))
 
-
-
-for dir in ['.', 'aufgaben']:
-    for fn in os.listdir(dir):
+def process(l):
+    for dir, fn in l:
         if "." not in fn:
             continue
         purebasename, suffix = fn.rsplit(".", 1)
@@ -43,3 +42,16 @@ for dir in ['.', 'aufgaben']:
             continue
         print '*', cmd
         os.system(cmd)
+
+def main():
+    import sys
+    if len(sys.argv) == 1:
+        files = [(dir, fn) for dir in ['.', 'aufgaben'] for fn in os.listdir(dir)]
+        print files
+        process(files)
+    else:
+        process([(os.path.dirname(arg), os.path.basename(arg)) for arg in sys.argv[1:]])
+                
+
+if __name__ == '__main__':
+    main()
