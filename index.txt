@@ -7,6 +7,20 @@ Die Vorlesung findet mittwochs um 11-13 Uhr im Seminarraum 25.12.02.55 statt.
 Der Termin der Übung steht noch nicht fest und wird in der ersten
 Vorlesungssitzung besprochen.
 
+Vorlesungsmaterial
+==================
+
+14.4.2010: Introduction to Dynamic Languages and Python
+-------------------------------------------------------
+
+- Useful links: `Python Tutorial`__; `py.test`__
+
+.. __: http://docs.python.org/tutorial/
+.. __: http://codespeak.net/py/dist/test.html
+
+.. raw:: html
+
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.
 
 .. 
     Vorlesungsmaterial
