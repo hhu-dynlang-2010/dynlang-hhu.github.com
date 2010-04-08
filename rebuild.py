@@ -6,7 +6,7 @@ def make_pdf(basename):
     if os.system(cmd):
         raise Exception
     # amazing, isn't it?
-    cmd = "sed 's/\\\\author{}/\\\\author{Carl Friedrich Bolz, David Schneider\\\\\\\\\\nHeinrich-Heine-Universit\\\\\"at D\\\\\"usseldorf\\\\\\\\\\nSommersemester 2010}/' -i %s.latex" % (basename, )
+    cmd = "sed 's/\\\\author{}/\\\\author{Carl Friedrich Bolz, David Schneider\\\\\\\\\\nDynamische Programmiersprachen\\\\\\\\\\nHeinrich-Heine-Universit\\\\\"at D\\\\\"usseldorf\\\\\\\\\\nSommersemester 2010}/' -i %s.latex" % (basename, )
     print cmd
     if os.system(cmd):
         raise Exception
