@@ -1,0 +1,57 @@
+.. include:: <s5defs.txt>
+==================
+Object-Orientation
+==================
+
+.. |pause| raw:: latex
+
+    \pause
+
+
+What is an Object?
+==================
+
+An object consist of two elements:
+
+ - State + Behaviour
+
+
+Why Object-Orientation?
+=======================
+
+**Abstraction**
+
+To use an object, we don't need to know how it is implemented.
+
+XXX more
+
+Object-Orientation in Dynamic Languages
+=======================================
+
+Two important principles for OO in dynamic languages:
+
+- Everything is an object
+- Every object is an instance of a class (a type)
+
+Messages
+========
+
+- Objects interact by sending messages to each other
+- The implementation of a message is called a method
+- message send consists of two steps: *lookup* and *call*
+- lookup finds which method to use, call calls it
+- lookup happens fully at runtime!
+
+
+
+Python: Instance-Attributes
+===========================
+
+- Instance-attributes are the state part of an object
+- they are stored in a dictionary attached to the instance
+
+Python: Object Creation
+=======================
+
+- instances are created by calling a type
+- classes are normal instances of type ``type``
