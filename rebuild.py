@@ -19,25 +19,41 @@ def make_pdf(basename):
     for suffix in "aux log nav out toc snm".split():
         os.remove("%s.%s" % (basename, suffix))
 
+def recent_output(dir, input, output):
+    return (os.stat(os.path.join(dir, input)).st_mtime < 
+            os.stat(os.path.join(dir, output)).st_mtime)
+           
+
 def process(l):
-    for dir, fn in l:
-        if "." not in fn:
+    for dir, basename in l:
+        if "." not in basename:
             continue
-        purebasename, suffix = fn.rsplit(".", 1)
+        purebasename, suffix = basename.rsplit(".", 1)
+        fullpath = os.path.join(dir, basename)
         if suffix == 'txt':
-            filename = os.path.join(dir, fn)
-            f = open(filename, 'r')
+            output = purebasename + ".html"
+            fullpath = os.path.join(dir, basename)
+            f = open(fullpath, 'r')
             data = f.read()
             f.close()
-            basename = filename[:-4]
             if '<s5defs.txt>' in data:
-                make_pdf(basename)
+                output = purebasename + ".pdf"
+                if recent_output(dir, basename, output):
+                    print "building of %s not necessary" % (output, )
+                    continue
+                make_pdf(purebasename)
                 continue
             else:
-                cmd = 'rst2html.py --input-encoding=utf8 --output-encoding=utf8 --stylesheet-path=style.css %s.txt %s.html' % (basename, basename)
+                output = purebasename + ".html"
+                if recent_output(dir, basename, output):
+                    print "building of %s not necessary" % (output, )
+                    continue
+                cmd = 'rst2html.py --input-encoding=utf8 --output-encoding=utf8 --stylesheet-path=style.css %s.txt %s' % (purebasename, output)
         elif suffix == 'py' and purebasename not in ["rebuild", "rst2beamer"]:
-            filename = os.path.join(dir, fn)
-            cmd = 'pygmentize -l %s -o %s.html -O full,linenos,style=manni,cssfile=highlight.css %s' % (suffix, filename, filename)
+            output = fullpath + ".html"
+            if recent_output(dir, basename, output):
+                print "building of %s not necessary" % (output, )
+            cmd = 'pygmentize -l %s -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (suffix, fullpath, output)
         else:
             continue
         print '*', cmd
@@ -46,8 +62,7 @@ def process(l):
 def main():
     import sys
     if len(sys.argv) == 1:
-        files = [(dir, fn) for dir in ['.', 'aufgaben'] for fn in os.listdir(dir)]
-        print files
+        files = [(dir, fn) for dir in ['.', 'aufgaben', 'figures'] for fn in os.listdir(dir)]
         process(files)
     else:
         process([(os.path.dirname(arg), os.path.basename(arg)) for arg in sys.argv[1:]])
