@@ -13,7 +13,7 @@ What is an Object?
 
 An object consist of two elements:
 
- - State + Behaviour
+- State + Behaviour
 
 
 Why Object-Orientation?
