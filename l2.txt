@@ -19,11 +19,18 @@ An object consist of two elements:
 Why Object-Orientation?
 =======================
 
+|pause|
+
 **Abstraction**
 
 To use an object, we don't need to know how it is implemented.
 
-XXX more
+|pause|
+
+**Modularity**
+
+Programs are split up into independent parts.
+
 
 Object-Orientation in Dynamic Languages
 =======================================
@@ -55,3 +62,18 @@ Python: Object Creation
 
 - instances are created by calling a type
 - classes are normal instances of type ``type``
+
+Python: Introspecting Objects
+=============================
+
+- the class of an object can be found via the ``__class__`` attribute
+- the base class of a type can be accessed with the ``__base__`` attribute
+
+Python: Basics of the Object Model
+==================================
+
+.. image:: figures/pyobjmodel.pdf
+   :scale: 40
+
+(many of the arrows from classes to ``type`` left out)
+
