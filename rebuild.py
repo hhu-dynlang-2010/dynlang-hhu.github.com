@@ -6,8 +6,7 @@ def make_pdf(basename):
     if os.system(cmd):
         raise Exception
     # amazing, isn't it?
-    cmd = "sed 's/\\\\author{}/\\\\author{Carl Friedrich Bolz, David Schneider\\\\\\\\\\nDynamische Programmiersprachen\\\\\\\\\\nHeinrich-Heine-Universit\\\\\"at D\\\\\"usseldorf\\\\\\\\\\nSommersemester 2010}/' -i %s.latex" % (basename, )
-    print cmd
+    cmd = "sed -i '.bak' 's/\\\\author{}/\\\\author{Carl Friedrich Bolz, David Schneider\\\\\\\\\\nDynamische Programmiersprachen\\\\\\\\\\nHeinrich-Heine-Universit\\\\\"at D\\\\\"usseldorf\\\\\\\\\\nSommersemester 2010}/' %s.latex" % (basename, )
     if os.system(cmd):
         raise Exception
     cmd = "pdflatex %s.latex" % (basename, )
@@ -21,11 +20,11 @@ def make_pdf(basename):
 
 def recent_output(dir, input, output):
     try:
-        return (os.stat(os.path.join(dir, input)).st_mtime < 
+        return (os.stat(os.path.join(dir, input)).st_mtime <
                 os.stat(os.path.join(dir, output)).st_mtime)
     except OSError:
         return False
-           
+
 
 def process(l):
     for dir, basename in l:
@@ -77,7 +76,7 @@ def main():
         process(files)
     else:
         process([(os.path.dirname(arg), os.path.basename(arg)) for arg in sys.argv[1:]])
-                
+
 
 if __name__ == '__main__':
     main()
