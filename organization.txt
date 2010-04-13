@@ -44,7 +44,7 @@ Vorlesungsnotizen
 
 * gemeinsames Erstellen von Vorlesungsnotizen im Repository
 
-* gibt 3 Punkte pro Woche
+* gibt bis zu 3 Punkte pro Woche bei aktiver Mitarbeit
 
 * wir lesen und ergänzen die Notizen
 

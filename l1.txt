@@ -145,6 +145,8 @@ Reflection:
 * The way in which we can inspect (and change) the
   running program from within itself
 
+* Non-modifying reflection is sometimes called **introspection**
+
 
 Pros and Cons
 ---------------------------------------------------------
@@ -170,10 +172,9 @@ Dynamic languages (exercice: why?):
 
 * Python
 
-* Prolog
-
 * Ruby, Perl, Smalltalk, Lisp, Scheme, JavaScript, Lua, Self...
 
+* Prolog
 
 Anti-Examples
 -------------------
