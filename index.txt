@@ -2,10 +2,13 @@
    Dynamic Languages SS 2010
 ================================
 
-Die Vorlesung findet mittwochs um 11-13 Uhr im Seminarraum 25.12.02.55 statt.
 
-Der Termin der Übung steht noch nicht fest und wird in der ersten
-Vorlesungssitzung besprochen.
+
+Die Vorlesung findet mittwochs um 11-13 Uhr statt. Wir suchen noch nach einem
+größeren Raum.
+
+Es gibt zwei Übungstermine, Mittwoch 11-13 und 16-18. Die Übung findet im
+Seminarraum 25.12.02.55 statt. Bitte Laptops mitbringen!
 
 Vorlesungsmaterial
 ==================
@@ -16,13 +19,14 @@ Vorlesungsmaterial
 - Slides about Organization__
 - Slides for `Lecture 1`__
 - `console session`__
-- `Demo program`__
+- `Demo program`__ (`.py Datei`__)
 - Useful links: `Python Tutorial`__; `py.test`__
 
 .. __: organization.pdf
 .. __: l1.pdf
 .. __: console1.html
 .. __: l1.py.html
+.. __: l1.py
 .. __: http://docs.python.org/tutorial/
 .. __: http://codespeak.net/py/dist/test.html
 
