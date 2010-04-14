@@ -13,8 +13,16 @@ Vorlesungsmaterial
 14.4.2010: Introduction to Dynamic Languages and Python
 -------------------------------------------------------
 
+- Slides about Organization__
+- Slides for `Lecture 1`__
+- `console session`__
+- `Demo program`__
 - Useful links: `Python Tutorial`__; `py.test`__
 
+.. __: organization.pdf
+.. __: l1.pdf
+.. __: console1.html
+.. __: l1.py.html
 .. __: http://docs.python.org/tutorial/
 .. __: http://codespeak.net/py/dist/test.html
 
@@ -29,9 +37,6 @@ Vorlesungsmaterial
     17.10.08: Introduction to Dynamic Languages and Python
     ------------------------------------------------------
 
-    * Slides about Organization__
-    * Slides for `Lecture 1`__
-    * `Demo program`__
     * Useful links: `Python Tutorial`__; `py.test`__
 
     .. __: organization.html

@@ -56,7 +56,14 @@ def process(l):
             output = basename + ".html"
             if recent_output(dir, basename, output):
                 print "building of %s not necessary" % (output, )
-            cmd = 'pygmentize -l %s -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (suffix, fullpath, output)
+                continue
+            cmd = 'pygmentize -l %s -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (suffix, output, fullpath)
+        elif suffix == 'pyi':
+            output = purebasename + ".html"
+            if recent_output(dir, basename, output):
+                print "building of %s not necessary" % (output, )
+                continue
+            cmd = 'pygmentize -l pycon -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (output, fullpath)
         elif suffix == "dot":
             output = purebasename + ".pdf"
             print output
@@ -65,6 +72,7 @@ def process(l):
                 continue
             epsname = os.path.join(dir, purebasename + ".eps")
             cmd = 'dot -Teps %s -o %s && epstopdf %s' % (fullpath, epsname, epsname)
+
         else:
             continue
         print '*', cmd
