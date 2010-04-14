@@ -76,6 +76,19 @@ def process(l):
             continue
         print '*', cmd
         os.system(cmd)
+        if output == "index.html":
+            f = file(output)
+            s = f.read()
+            f.close()
+            s = s.replace(
+        """http://docutils.sourceforge.net/" />
+<title>""",
+        """http://docutils.sourceforge.net/" />
+<link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="lecture-rss.xml" />
+<title>""")
+            f = file(output, "w")
+            s = f.write(s)
+            f.close()
 
 def main():
     import sys
