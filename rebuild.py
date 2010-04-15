@@ -1,8 +1,8 @@
 import os
 import os.path
 
-def make_pdf(basename):
-    cmd = './rst2beamer.py %s.txt > %s.latex' % (basename, basename)
+def make_pdf(basename, suffix):
+    cmd = './rst2beamer.py %s.%s > %s.latex' % (basename, suffix, basename)
     if os.system(cmd):
         raise Exception
     # amazing, isn't it?
@@ -30,7 +30,7 @@ def process(l):
             continue
         purebasename, suffix = basename.rsplit(".", 1)
         fullpath = os.path.join(dir, basename)
-        if suffix == 'txt':
+        if suffix == 'txt' or suffix == 'rst':
             output = purebasename + ".html"
             fullpath = os.path.join(dir, basename)
             f = open(fullpath, 'r')
@@ -41,7 +41,7 @@ def process(l):
                 if recent_output(dir, basename, output):
                     print "building of %s not necessary" % (output, )
                     continue
-                make_pdf(purebasename)
+                make_pdf(purebasename, suffix)
                 continue
             else:
                 output = purebasename + ".html"
