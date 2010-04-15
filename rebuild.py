@@ -1,14 +1,12 @@
 import os
 import os.path
 
-def make_pdf(basename):
-    cmd = './rst2beamer.py %s.txt > %s.latex' % (basename, basename)
+def make_pdf(basename, suffix):
+    cmd = './rst2beamer.py %s.%s > %s.latex' % (basename, suffix, basename)
     if os.system(cmd):
         raise Exception
     # amazing, isn't it?
-    cmd = "sed -i '.bak' 's/\\\\author{}/\\\\author{Carl Friedrich Bolz, David Schneider\\\\\\\\\\nDynamische Programmiersprachen\\\\\\\\\\nHeinrich-Heine-Universit\\\\\"at D\\\\\"usseldorf\\\\\\\\\\nSommersemester 2010}/' %s.latex" % (basename, )
-    if os.system(cmd):
-        raise Exception
+    replace('%s.latex' % (basename, ), 'author{}', 'author{Carl Friedrich Bolz, David Schneider\nDynamische Programmiersprachen\nHeinrich-Heine-Universit\\"at D\\"usseldorf\nSommersemester 2010}'.replace('\n', '\\\\\n'))
     cmd = "pdflatex %s.latex" % (basename, )
     if os.system(cmd):
         raise Exception
@@ -32,7 +30,7 @@ def process(l):
             continue
         purebasename, suffix = basename.rsplit(".", 1)
         fullpath = os.path.join(dir, basename)
-        if suffix == 'txt':
+        if suffix == 'txt' or suffix == 'rst':
             output = purebasename + ".html"
             fullpath = os.path.join(dir, basename)
             f = open(fullpath, 'r')
@@ -43,7 +41,7 @@ def process(l):
                 if recent_output(dir, basename, output):
                     print "building of %s not necessary" % (output, )
                     continue
-                make_pdf(purebasename)
+                make_pdf(purebasename, suffix)
                 continue
             else:
                 output = purebasename + ".html"
@@ -77,18 +75,19 @@ def process(l):
         print '*', cmd
         os.system(cmd)
         if output == "index.html":
-            f = file(output)
-            s = f.read()
-            f.close()
-            s = s.replace(
+            replace(output,
         """http://docutils.sourceforge.net/" />
 <title>""",
         """http://docutils.sourceforge.net/" />
 <link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="lecture-rss.xml" />
 <title>""")
-            f = file(output, "w")
-            s = f.write(s)
-            f.close()
+
+def replace(filename, search, replace):
+    with file(filename) as f:
+        s = f.read()
+    s = s.replace(search, replace)
+    with file(filename, "w") as f:
+        f.write(s)
 
 def main():
     import sys
