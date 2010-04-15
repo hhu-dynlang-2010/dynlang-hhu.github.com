@@ -7,7 +7,7 @@ Beamer is a LaTeX document class for presentations. Via this script, ReST can
 be used to prepare slides. It can be called::
 
         rst2beamer.py infile.txt > outfile.tex
-        
+
 where ``infile.tex`` contains the produced Beamer LaTeX.
 
 See <http:www.agapow.net/programming/python/rst2beamer> for more details.
@@ -80,6 +80,9 @@ class BeamerTranslator (LaTeXTranslator):
                 LaTeXTranslator.__init__ (self, document)
                 self.head_prefix = [x for x in self.head_prefix if ('{typearea}' not in x)]
                 hyperref_posn = [i for i in range (len (self.head_prefix)) if ('{hyperref}' in self.head_prefix[i])]
+                if not hyperref_posn:
+                        self.head_prefix.append(None)
+                        hyperref_posn = [-1] # XXX hack
                 self.head_prefix[hyperref_posn[0]] = '\\usepackage{hyperref}\n'
                 self.head_prefix.extend ([
                         '\\definecolor{rrblitbackground}{rgb}{0.55, 0.3, 0.1}\n',
