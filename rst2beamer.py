@@ -36,6 +36,50 @@ from docutils.writers.latex2e import Writer as Latex2eWriter
 from docutils.writers.latex2e import LaTeXTranslator, DocumentClass
 from docutils import nodes
 
+## Syntax highlighting:
+
+"""
+        .. sourcecode:: python
+
+            My code goes here.
+
+
+    :copyright: 2007 by Georg Brandl.
+    :license: BSD, see LICENSE for more details.
+"""
+
+from pygments.formatters import HtmlFormatter, LatexFormatter
+
+# The default formatter
+DEFAULT = LatexFormatter()
+
+
+from docutils.parsers.rst import directives
+
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, TextLexer
+
+VARIANTS = {
+    'linenos': LatexFormatter(linenos=True),
+}
+
+def pygments_directive(name, arguments, options, content, lineno,
+                       content_offset, block_text, state, state_machine):
+    try:
+        lexer = get_lexer_by_name(arguments[0])
+    except ValueError:
+        # no lexer found - use the text one instead of an exception
+        lexer = TextLexer()
+    formatter = DEFAULT
+    parsed = highlight(u'\n'.join(content), lexer, formatter)
+    return [nodes.raw('', parsed, format='latex')]
+
+pygments_directive.arguments = (1, 0, 1)
+pygments_directive.content = 1
+pygments_directive.options = dict([(key, directives.flag) for key in VARIANTS])
+
+directives.register_directive('sourcecode', pygments_directive)
+
 ## CONSTANTS & DEFINES: ###
 
 BEAMER_SPEC =   (
@@ -83,7 +127,11 @@ class BeamerTranslator (LaTeXTranslator):
                 if not hyperref_posn:
                         self.head_prefix.append(None)
                         hyperref_posn = [-1] # XXX hack
-                self.head_prefix[hyperref_posn[0]] = '\\usepackage{hyperref}\n'
+                self.head_prefix[hyperref_posn[0]] = ('\\usepackage{hyperref}\n' +
+                                                      '\\usepackage{fancyvrb}\n' +
+                                                      LatexFormatter(style="manni").get_style_defs() +
+                                                      "\n")
+
                 self.head_prefix.extend ([
                         '\\definecolor{rrblitbackground}{rgb}{0.55, 0.3, 0.1}\n',
                         '\\newenvironment{rtbliteral}{\n',
@@ -97,7 +145,7 @@ class BeamerTranslator (LaTeXTranslator):
                 self.d_class = DocumentClass ('article')
 
         def begin_frametag (self):
-                return '\\begin{frame}\n'
+                return '\\begin{frame}[containsverbatim]\n'
 
         def end_frametag (self):
                 return '\\end{frame}\n'
@@ -161,6 +209,8 @@ class BeamerWriter (Latex2eWriter):
         def __init__(self):
                 Latex2eWriter.__init__(self)
                 self.translator_class = BeamerTranslator
+
+
 
 
 if __name__ == '__main__':
