@@ -1,6 +1,9 @@
 import os
 import os.path
 
+class CmdFailed(Exception):
+    pass
+
 class Builder(object):
     inext = None # abstract base class
     outext = None
@@ -23,8 +26,8 @@ class Builder(object):
         return os.path.join(self.path, self._input)
     def output(self):
         return os.path.join(self.path, self._output)
-    def join(self, filename):
-        return os.path.join(self.path, filename)
+    def newext(self, ext):
+        return os.path.join(self.path, self.purebasename + ext)
 
     def recent_output(self):
         try:
@@ -37,8 +40,19 @@ class Builder(object):
         if self.recent_output():
             return
         print "building", self.output(), "with", self.__class__.__name__
-        if not self._build() or not self.recent_output():
+        res = True
+        try:
+            self._build()
+        except CmdFailed:
+            res = False
+        if not res or not self.recent_output():
             print "building of %s failed" % (self.output(), )
+
+    def cmd(self, cmd):
+        if os.system(cmd):
+            print "cmd failed:", cmd
+            raise CmdFailed
+
 
 class BeamerBuilder(Builder):
     inext = "rst"
@@ -48,19 +62,16 @@ class BeamerBuilder(Builder):
         return '<s5defs.txt>' in self.content
 
     def _build(self):
-        latexfile = self.join(self.purebasename + ".latex")
+        latexfile = self.newext(".latex")
         cmd = './rst2beamer.py %s > %s' % (self.input(), latexfile)
-        if os.system(cmd):
-            return False
+        self.system(cmd)
         # amazing, isn't it?
         replace(latexfile, '\\author{}', '\\author{Carl Friedrich Bolz, David Schneider\nDynamische Programmiersprachen\nHeinrich-Heine-Universit\\"at D\\"usseldorf\nSommersemester 2010}'.replace('\n', '\\\\\n'))
         for i in range(2):
             cmd = "pdflatex " + latexfile
-            if os.system(cmd):
-                return False
-        for suffix in "aux log nav out toc snm".split():
-            os.remove(self.join(self.purebasename  + "." + suffix))
-        return True
+            self.system(cmd)
+        for suffix in ".aux .log .nav .out .toc .snm".split():
+            os.remove(self.newext(suffix))
 
 class RstHtmlBuilder(Builder):
     inext = "rst"
@@ -71,8 +82,7 @@ class RstHtmlBuilder(Builder):
 
     def _build(self):
         cmd = 'rst2html.py --input-encoding=utf8 --output-encoding=utf8 --stylesheet-path=style.css %s %s' % (self.input(), self.output())
-        if os.system(cmd):
-            return False
+        self.system(cmd)
         if self._input == "index.txt":
             replace(self.output(),
         """http://docutils.sourceforge.net/" />
@@ -80,16 +90,13 @@ class RstHtmlBuilder(Builder):
         """http://docutils.sourceforge.net/" />
 <link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="lecture-rss.xml" />
 <title>""")
-        return True
 
 class PygmentizeBuilder(Builder):
     outext = ".html"
 
     def _build(self):
         cmd = 'pygmentize -l %s -o %s -O full,linenos,style=manni,cssfile=highlight.css %s' % (self.syntax, self.output(), self.input())
-        if os.system(cmd):
-            return False
-        return True
+        self.system(cmd)
 
 class PyBuilder(PygmentizeBuilder):
     inext = "py"
@@ -107,11 +114,9 @@ class DotBuilder(Builder):
     outext = ".pdf"
 
     def _build(self):
-        epsname = self.join(self.purebasename + ".eps")
+        epsname = self.newext(".eps")
         cmd = 'dot -Teps %s -o %s && epstopdf %s' % (self.input(), epsname, epsname)
-        if os.system(cmd):
-            return False
-        return True
+        self.system(cmd)
 
 builders = {}
 for cls in [BeamerBuilder, RstHtmlBuilder, PyBuilder, PyConsoleBuilder, DotBuilder]:
