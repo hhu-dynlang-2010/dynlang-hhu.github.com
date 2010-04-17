@@ -121,8 +121,7 @@ def process(l):
     for dir, basename in l:
         if "." not in basename:
             continue
-        purebasename, suffix = basename.rsplit(".", 1)
-        fullpath = os.path.join(dir, basename)
+        _, suffix = basename.rsplit(".", 1)
         if suffix not in builders:
             continue
         for B in builders[suffix]:
