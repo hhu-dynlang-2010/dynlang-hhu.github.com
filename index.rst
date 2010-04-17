@@ -26,7 +26,7 @@ Vorlesungsmaterial
 .. __: organization.pdf
 .. __: l1.pdf
 .. __: console1.html
-.. __: l1.py.html
+.. __: l1.html
 .. __: l1.py
 .. __: http://docs.python.org/tutorial/
 .. __: http://codespeak.net/py/dist/test.html
@@ -46,7 +46,7 @@ Vorlesungsmaterial
 
     .. __: organization.html
     .. __: l1.html
-    .. __: l1.py.html
+    .. __: l1.html
     .. __: http://docs.python.org/tutorial/
     .. __: http://codespeak.net/py/dist/test.html
 
@@ -60,8 +60,8 @@ Vorlesungsmaterial
     * Useful link: `Python Types and Objects`__.
 
     .. __: l2.html
-    .. __: l2.py.html
-    .. __: l2_class.py.html
+    .. __: l2.html
+    .. __: l2_class.html
     .. __: http://www.cafepy.com/article/python_types_and_objects/contents.html
 
     31.10.08: Python's Object Model
@@ -74,8 +74,8 @@ Vorlesungsmaterial
     * Second part of Python Types and Objects: `Python Attributes and Methods`__
     * Paper__ describing the base model of ``type`` and ``object``.
 
-    .. __: l3.py.html
-    .. __: l3_getattr.py.html
+    .. __: l3.html
+    .. __: l3_getattr.html
     .. __: http://docs.python.org/reference/datamodel.html#special-method-names
     .. __: http://www.cafepy.com/article/python_attributes_and_methods/contents.html
     .. __: http://portal.acm.org/citation.cfm?id=38822
@@ -89,10 +89,10 @@ Vorlesungsmaterial
     * `Demo program`__ for a lazily computed attribute
     * `Python Documentation`__ describing ``__get__`` and ``__set__``
 
-    .. __: l4_singleton.py.html
-    .. __: l4_spreadsheet.py.html
-    .. __: l4_vector.py.html
-    .. __: l4_lazyattr.py.html
+    .. __: l4_singleton.html
+    .. __: l4_spreadsheet.html
+    .. __: l4_vector.html
+    .. __: l4_lazyattr.html
     .. __: http://docs.python.org/reference/datamodel.html#implementing-descriptors
 
     14.11.08: ``__get__`` Special method and Duck Typing
@@ -113,7 +113,7 @@ Vorlesungsmaterial
     * Wikipedia article about `coroutines`__
 
     .. __: http://www.python.org/doc/2.2.2/whatsnew/node5.html
-    .. __: l6_generators.py.html
+    .. __: l6_generators.html
     .. __: http://codespeak.net/py/dist/greenlet.html
     .. __: http://en.wikipedia.org/wiki/Coroutines
 
@@ -126,7 +126,7 @@ Vorlesungsmaterial
     * `Demo program`__ using prototypes
     * One of the early `papers`__ proposing the use of prototypes
 
-    .. __: l7_pygame.py.html
+    .. __: l7_pygame.html
     .. __: l7.html
     .. __: l7_point.py
     .. __: http://web.media.mit.edu/~lieber/Lieberary/OOP/Delegation/Delegation.html
@@ -139,7 +139,7 @@ Vorlesungsmaterial
     * `Paper`__ describing C3, the algorithm used in Python to do superclass linearization
 
     .. __: l8.html
-    .. __: l8_pairtype.py.html
+    .. __: l8_pairtype.html
     .. __: http://192.220.96.201/dylan/linearization-oopsla96.html
 
     12.12.08 Smalltalk
