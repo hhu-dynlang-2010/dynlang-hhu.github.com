@@ -8,6 +8,8 @@ Dynamic Languages - Übungen Blatt 1
 Aufgabe 0
 ---------
 
+(2 Punkte)
+
 1. Install Python, easy_install, mercurial and py.test.
 
 2. Make an account at bitbucket.org.
@@ -22,6 +24,8 @@ Aufgabe 0
 Aufgabe 1
 ---------
 
+(2 Punkte)
+
 Write a function that counts the number of lines and the number of words
 in a file.  A word is any non-empty sequence of characters between
 whitespace (as per the ``split()`` method of strings).  The test function
@@ -30,6 +34,8 @@ is given in ``aufgaben/blatt1.py``.
 
 Aufgabe 2
 ---------
+
+(2 Punkte)
 
 1. The goal is to find a zero (in the mathematical sense) of some
    continuous function ``f(x)`` that takes and returns a real number
@@ -56,6 +62,8 @@ Aufgabe 2
 Aufgabe 3
 ---------
 
+(2 Punkte)
+
 Change the function ``send(obj, message, *args)`` from the lecture
 (http://wyvern.cs.uni-duesseldorf.de/hhu-dynlang/l2_class.py) to behave
 differently when the message name is not found: instead of immediately
@@ -73,6 +81,8 @@ Start from the test in ``aufgaben/blatt1.py`` but write more tests.
 
 Aufgabe 4
 ---------
+
+(2 Punkte)
 
 1. Implement the Burrows Wheeler transformation.  Start from the test in
    ``aufgaben/blatt1.py``.
