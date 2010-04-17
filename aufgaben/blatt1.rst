@@ -65,7 +65,7 @@ Aufgabe 3
 (2 Punkte)
 
 Change the function ``send(obj, message, *args)`` from the lecture
-(http://wyvern.cs.uni-duesseldorf.de/hhu-dynlang/l2_class.py) to behave
+(in file ``l2_class.py``) to behave
 differently when the message name is not found: instead of immediately
 raising an ``AttributeError`` exception, it should try to send to the
 same object a new message called ``"message_not_understood"``.  The
