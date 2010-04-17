@@ -50,12 +50,18 @@ Messages
 - lookup happens fully at runtime!
 
 
+Inheritance
+===========
+
+- 
+
 
 Python: Instance-Attributes
 ===========================
 
 - Instance-attributes are the state part of an object
 - they are stored in a dictionary attached to the instance
+- the instance can be accessed via the ``__dict__`` attribute
 
 Python: Object Creation
 =======================
@@ -72,8 +78,9 @@ Python: Introspecting Objects
 Python: Basics of the Object Model
 ==================================
 
+|pause|
+
 .. image:: figures/pyobjmodel.pdf
    :scale: 40
 
 (many of the arrows from classes to ``type`` left out)
-
