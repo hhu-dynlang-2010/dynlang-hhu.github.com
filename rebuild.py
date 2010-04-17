@@ -48,7 +48,7 @@ class Builder(object):
         if not res or not self.recent_output():
             print "building of %s failed" % (self.output(), )
 
-    def cmd(self, cmd):
+    def system(self, cmd):
         if os.system(cmd):
             print "cmd failed:", cmd
             raise CmdFailed
