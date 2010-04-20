@@ -130,7 +130,7 @@ def test_backward_transformation():
 
 
 def test_composition():
-    f = open('blatt1.txt', 'r')
+    f = open('blatt1.py', 'r')
     text = f.read()
     f.close()
     (transformed, index) = burrows_wheeler_forward(text)
