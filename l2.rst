@@ -48,12 +48,15 @@ Messages
 - message send consists of two steps: *lookup* and *call*
 - lookup finds which method to use, call calls it
 - lookup happens fully at runtime!
+- the message send is the primitive operation of program execution
 
 
 Inheritance
 ===========
 
-- 
+- inheritance (or subclassing) is the way in which classes can be related to each other
+- every class can have a superclass
+- determines how message sends behave, thus can be used for code-sharing
 
 
 Python: Instance-Attributes
@@ -61,7 +64,7 @@ Python: Instance-Attributes
 
 - Instance-attributes are the state part of an object
 - they are stored in a dictionary attached to the instance
-- the instance can be accessed via the ``__dict__`` attribute
+- the instance attributes can be accessed via the ``__dict__`` attribute
 
 Python: Object Creation
 =======================
