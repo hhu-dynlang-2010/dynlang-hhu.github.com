@@ -29,7 +29,7 @@ Aufgabe 1
 Write a function that counts the number of lines and the number of words
 in a file.  A word is any non-empty sequence of characters between
 whitespace (as per the ``split()`` method of strings).  The test function
-is given in ``aufgaben/blatt1.py``.
+is given in ``blatt1.py``.
 
 
 Aufgabe 2
@@ -46,14 +46,14 @@ Aufgabe 2
    ``f(b) > 0`` (or the other way around), and divide the interval in
    half, and repeats until the zero has been found with sufficient
    precision (e.g. at least 0.0001).  See the test in
-   ``aufgaben/blatt1.py``.
+   ``blatt1.py``.
 
 2. Use the function from 1. to implement ``approximate_sqrt``. See the test in 
-   ``aufgaben/blatt1.py``.
+   ``blatt1.py``.
 
 3. Write a function that takes an arithmetic expression as a string and
    turns it into a function, with one argument ``x``, that can be used in
-   part 1.  See the test in ``aufgaben/blatt1.py``.  Hint: use the
+   part 1.  See the test in ``blatt1.py``.  Hint: use the
    built-in ``eval()`` (type ``help(eval)`` in an interactive prompt).
 
 4. Combine 1. and 3. in the obvious way.
@@ -76,7 +76,7 @@ arguments of the original message.
 If the ``"message_not_understood"`` message is not found, then ``send``
 should raise ``AttributeError`` as before.
 
-Start from the test in ``aufgaben/blatt1.py`` but write more tests.
+Start from the test in ``blatt1.py`` but write more tests.
 
 
 Aufgabe 4
@@ -85,7 +85,7 @@ Aufgabe 4
 (2 Punkte)
 
 1. Implement the Burrows Wheeler transformation.  Start from the test in
-   ``aufgaben/blatt1.py``.
+   ``blatt1.py``.
 
 2. Write your own test for the reverse transformation and implement it.
 
