@@ -1,0 +1,44 @@
+.. include:: <s5defs.txt>
+
+.. |pause| raw:: latex
+
+    \pause
+
+===================
+Python's Attributes
+===================
+
+Reminder
+============
+
+a message send consists of two steps:
+
+- lookup the message implementation
+- activate (i.e. call) the method that was found in this way
+
+those are done in one step, not visible to the programmer
+
+
+Attributes
+============
+
+in Python, those steps are separated in the language::
+
+    obj.method(argument_1, ..., argument_n)
+
+is identical to::
+
+    m = obj.method
+    m(argument_1, ..., argument_n)
+
+Bound methods
+==============
+
+- The object ``m`` is called a *bound method*
+- it can be called like a function
+- it is bound to the object out of which it was read
+- thus reading methods out of objects behave like object-attributes
+
+
+Data Members
+=============
