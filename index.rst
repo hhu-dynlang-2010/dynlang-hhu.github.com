@@ -8,7 +8,7 @@ Die Vorlesung findet mittwochs um 11-13 Uhr in Raum 25.12.02.33 statt.
 
 .. Am 26.05.2010 findet die Vorlesung in Raum 25.12.02.55 statt. 
 
-Es gibt zwei Übungstermine, Mittwoch 11-13 und 16-18. Die Übung findet im
+Es gibt zwei Übungstermine, Mittwoch 09-11 und 16-18. Die Übung findet im
 Seminarraum 25.12.02.55 statt. Bitte Laptops mitbringen!
 
 Vorlesungsmaterial
