@@ -1,46 +1,82 @@
+# _________________________________________________________
+# remove duplicates
+
 def test_remove_duplicates():
-    l = remove_duplicates([])
-    assert l == []
-    l = remove_duplicates([1, 1, 1, 2, 3, 4, 5, 4, 6])
-    assert l == [1, 2, 3, 4, 5, 6]
+    assert remove_duplicates([1, 1, 2, 4, 6, 1, 5]) == [1, 2, 4, 6, 5]
+    assert remove_duplicates([]) == []
+
 
 def remove_duplicates(l):
     result = []
-    seen = {}
+    d = {}
     for element in l:
-        if element not in seen:
+        if element not in d:
             result.append(element)
-            seen[element] = True
+            d[element] = True
     return result
+
+# _________________________________________________________
+# naively recursive fibonacci
 
 def test_fib():
     assert fib(1) == 1
     assert fib(2) == 1
+    assert fib(3) == 2
     assert fib(9) == 34
     assert fib(35) == 9227465
 
 def fib(n):
     if n == 1 or n == 2:
         return 1
-    return fib(n - 1) + fib(n - 2)
+    else:
+        result = fib(n - 1) + fib(n - 2)
+        return result
 
-results = {}
-def fib_memoized(n):
-    if n in results:
-        return results[n]
+# _________________________________________________________
+# memoized recursive fibonacci
+
+def test_fib_memo():
+    assert fib_memo(1) == 1
+    assert fib_memo(2) == 1
+    assert fib_memo(3) == 2
+    assert fib_memo(9) == 34
+    assert fib_memo(35) == 9227465
+
+d_fib = {}
+def fib_memo(n):
+    if n in d_fib:
+        return d_fib[n]
     if n == 1 or n == 2:
         return 1
-    result = fib(n - 1) + fib(n - 2)
-    results[n] = result
-    return result
+    else:
+        result = fib_memo(n - 1) + fib_memo(n - 2)
+        d_fib[n] = result
+        return result
+
+# _________________________________________________________
+# simple example for an inner function
+
+def make_adder(n):
+    def addn(x):
+        return x + n
+    return addn
+
+def test_make_adder():
+    add5 = make_adder(5)
+    assert add5(5) == 10
+    assert add5(7) == 12
+
+
+# _________________________________________________________
+# generate memoizing function automatically
 
 def memo_maker(f):
-    results = {}
-    def memoized(*args):
-        if args in results:
-            return results[args]
-        result = f(*args)
-        results[args] = result
+    d = {}
+    def memoized(n):
+        if n in d:
+            return d[n]
+        result = f(n)
+        d[n] = result
         return result
     return memoized
 
@@ -49,19 +85,25 @@ def test_memo_maker():
     def change_list(n):
         l.append(n)
         return len(l)
-    memoized = memo_maker(change_list)
-    r = memoized(1)
+    change_list_memo = memo_maker(change_list)
+    r = change_list_memo(0)
     assert r == 1
-    assert l == [1]
-    r = memoized(1)
+
+    r = change_list_memo(0)
     assert r == 1
-    assert l == [1]
 
-def make_adder(n):
-    def add(x):
-        return x + n
-    return add
 
-def test_make_adder():
-    add5 = make_adder(5)
-    assert add5(10) == 15
+def fib_memo_generated(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        result = fib_memo_generated(n - 1) + fib_memo_generated(n - 2)
+        return result
+fib_memo_generated = memo_maker(fib_memo_generated)
+
+def test_fib_memo_generated():
+    assert fib_memo_generated(1) == 1
+    assert fib_memo_generated(2) == 1
+    assert fib_memo_generated(3) == 2
+    assert fib_memo_generated(9) == 34
+    assert fib_memo_generated(35) == 9227465

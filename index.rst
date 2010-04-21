@@ -11,7 +11,7 @@ Die Vorlesung findet mittwochs um 11-13 Uhr in Raum 25.12.02.33 statt.
 Es gibt zwei Übungstermine, Mittwoch 11-13 und 16-18. Die Übung findet im
 Seminarraum 25.12.02.55 statt. Bitte Laptops mitbringen!
 
-Vorlesungsmaterial
+Material
 ==================
 
 14.4.2010: Introduction to Dynamic Languages and Python
@@ -32,6 +32,25 @@ Vorlesungsmaterial
 .. __: http://codespeak.net/py/dist/test.html
 
 
+21.4.2010: Single-Inheritance Object-Orientation
+--------------------------------------------------
+
+- `Demo program`__ with ``remove_duplicates`` and ``memo_maker`` (`.py Datei`__).
+- Slides for `Lecture 2`__
+- `Demo program`__, implementing ``myisinstance``, ``myissubtype`` and ``send`` (`.py Datei`__).
+- `Introduction to mercurial and py.test`__
+- Slides about `Exercises`__
+- Useful link: `Python Types and Objects`__
+
+.. __: l2.html
+.. __: l2.py
+.. __: l2.pdf
+.. __: l2_class.html
+.. __: l2_class.py
+.. __: tools.pdf
+.. __: exercise.pdf
+.. __: http://www.cafepy.com/article/python_types_and_objects/contents.html
+
 
 Übungsblätter
 =============
@@ -49,35 +68,7 @@ Blatt 1
 
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.
 
-.. 
-    Vorlesungsmaterial
-    ==================
-
-    17.10.08: Introduction to Dynamic Languages and Python
-    ------------------------------------------------------
-
-    * Useful links: `Python Tutorial`__; `py.test`__
-
-    .. __: organization.html
-    .. __: l1.html
-    .. __: l1.html
-    .. __: http://docs.python.org/tutorial/
-    .. __: http://codespeak.net/py/dist/test.html
-
-
-    24.10.08: Object Models
-    -----------------------
-
-    * Slides for `Lecture 2`__
-    * `Demo program`__ with ``remove_duplicates`` and ``memo_maker``.
-    * `Demo program`__, implementing ``isinstance``, ``issubtype`` and ``send``.
-    * Useful link: `Python Types and Objects`__.
-
-    .. __: l2.html
-    .. __: l2.html
-    .. __: l2_class.html
-    .. __: http://www.cafepy.com/article/python_types_and_objects/contents.html
-
+..
     31.10.08: Python's Object Model
     -------------------------------
 

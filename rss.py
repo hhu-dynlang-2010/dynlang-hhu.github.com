@@ -10,6 +10,9 @@ rss = PyRSS2Gen.RSS2(
 
     items = [
        PyRSS2Gen.RSSItem(
+         title = "Uploaded Slides for lecture 2",
+         pubDate = datetime.datetime(2011, 4, 21, 15, 3)),
+       PyRSS2Gen.RSSItem(
          title = "Exercises week 1",
          pubDate = datetime.datetime(2011, 4, 21, 9, 1),
          description = 'The first set of exercises is available.'),

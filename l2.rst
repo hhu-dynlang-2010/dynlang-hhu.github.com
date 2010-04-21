@@ -3,10 +3,6 @@
 Object-Orientation
 ==================
 
-.. |pause| raw:: latex
-
-    \pause
-
 
 What is an Object?
 ==================
@@ -19,17 +15,19 @@ An object consist of two elements:
 Why Object-Orientation?
 =======================
 
-|pause|
 
 **Abstraction**
 
 To use an object, we don't need to know how it is implemented.
 
-|pause|
 
 **Modularity**
 
 Programs are split up into independent parts.
+
+**Extensibility**
+
+Can enhance a program without changing existing parts.
 
 
 Object-Orientation in Dynamic Languages
@@ -80,8 +78,6 @@ Python: Introspecting Objects
 
 Python: Basics of the Object Model
 ==================================
-
-|pause|
 
 .. image:: figures/pyobjmodel.pdf
    :scale: 40

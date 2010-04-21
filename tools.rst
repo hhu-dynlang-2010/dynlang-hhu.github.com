@@ -85,7 +85,7 @@ Disabling Tests
 =================
 
 If a test is not working temporarily or under specific circumstances, it can
-be skipped.
+be *skipped*.
 
 .. sourcecode:: python
     
