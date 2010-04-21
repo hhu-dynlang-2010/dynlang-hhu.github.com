@@ -83,7 +83,7 @@ class RstHtmlBuilder(Builder):
     def _build(self):
         cmd = 'rst2html.py --input-encoding=utf8 --output-encoding=utf8 --stylesheet-path=style.css %s %s' % (self.input(), self.output())
         self.system(cmd)
-        if self._input == "index.txt":
+        if self._input == "index.rst":
             replace(self.output(),
         """http://docutils.sourceforge.net/" />
 <title>""",
