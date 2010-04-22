@@ -2,12 +2,12 @@
 Dynamic Languages - Übungen Blatt 2
 =======================================
 
-:Abgabedatum: 13. November 2008
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
+:Abgabedatum: ``3. Mai 2010``
 
 
 Aufgabe 1
 ---------
+(2 Punkte)
 
 1. Write a function that takes a string and computes a nested dictionary from it.
    The goal is to find out which words follow another word in this string.
@@ -17,26 +17,29 @@ Aufgabe 1
 
 2. Such a dictionary can be used to produce a random text that is similar to the
    text the dictionary was created from. To do this, start with a random word
-   from the dictionary. Then pick the next work out of the words that followed
+   from the dictionary. Then pick a random word out of the words that followed
    the first word in the original text, with probabilities according to their
    occurrences.
 
 
 Aufgabe 2
 ---------
+(3 Punkte)
 
-1. Change ``mygettattr`` from last lecture to add a way to add "virtual"
-   attributes to types without changing the type itself, which are only seen
-   when using ``mygettattr``.  These overrides can be added with a helper
-   functions. The test functions are given in ``aufgaben/blatt2.py``. 
-
-2. Write a metaclass that exposes the overriding behaviour in a nice way. All
-   the attributes of the class are to be added to the base type of the type
-   class. The test functions are given in ``aufgaben/blatt2.py``. 
-
+Change ``mygettattr`` from last lecture to add a way to add "virtual"
+attributes to types without changing the type itself, which are only seen
+when using ``mygettattr``.  These overrides can be added with a helper
+functions. The test functions are given in ``aufgaben/blatt2.py``. 
 
 Aufgabe 3
 ---------
+(3 Punkte)
+
+
+
+Aufgabe 4
+---------
+(2 Punkte)
 
 A possible implementation of the forward part of the Burrows-Wheeler
 transformation (Aufgabe 4 Blatt 1) is given in ``blatt2.py``. However, it has
