@@ -67,35 +67,43 @@ def test_mygetattr_override():
     py.test.raises(AttributeError, mygetattr, 1, "fortyone")
 
 
-def test_override_metaclass():
-    class OverrideInt(int):
-        __metaclass__ = OverridingMetaclass
-        a = 41
-        def larger_than_fortyone(self):
-            return self > 41
+# ____________________________________________________________
+#
+# AUFGABE 3
+#
 
-    assert mygetattr(1, "a") == 41
-    method = mygetattr(100, "larger_than_fortyone")
-    assert method() == True
-    method = mygetattr(1, "larger_than_fortyone")
-    assert method() == False
+def test_open_class():
+    class A(object):
+        __metaclass__ = OpenClass
 
-    py.test.raises(AttributeError, mygetattr, 4.0, "a")
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
 
-def test_override__getattr__special_method():
-    class C(object):
-        pass
-    class OverrideC(C):
-        __metaclass__ = OverridingMetaclass
-        def __getattr__(self, attrname):
-            return len(attrname)
-    c = C()
-    assert mygetattr(c, "hello") == 5
+        def f(self):
+            return self.x + self.y
+
+        value = 7
+
+    a = A(2, 4)
+    assert a.f() == 6
+    assert a.value == 7
+    py.test.raises(AttributeError, "a.g()")
+
+    class __enhance__(A):
+        value = 9
+
+        def g(self):
+            return self.x * self.y
+
+    assert a.value == 9
+    assert a.g() == 8
+
 
 
 # ____________________________________________________________
 #
-# AUFGABE 3
+# AUFGABE 4
 #
 
 

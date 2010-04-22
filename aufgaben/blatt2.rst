@@ -13,7 +13,7 @@ Aufgabe 1
    The goal is to find out which words follow another word in this string.
    The dictionaries keys are therefore the words appearing in the string. The
    values are again dictionaries that map the following word to a number of
-   occurrences. The test function is given in ``aufgaben/blatt1.py``.
+   occurrences. The test function is given in ``blatt2.py``.
 
 2. Such a dictionary can be used to produce a random text that is similar to the
    text the dictionary was created from. To do this, start with a random word
@@ -28,7 +28,7 @@ Aufgabe 2
 1. Change ``mygettattr`` from last lecture to add a way to add "virtual"
    attributes to types without changing the type itself, which are only seen
    when using ``mygettattr``.  These overrides can be added with a helper
-   functions. The test functions are given in ``aufgaben/blatt2.py``. 
+   functions. The test functions are given in ``blatt2.py``.
 
 2. Write a metaclass that exposes the overriding behaviour in a nice way. All
    the attributes of the class are to be added to the base type of the type
@@ -36,6 +36,17 @@ Aufgabe 2
 
 
 Aufgabe 3
+---------
+(3 Punkte)
+
+Write a metaclass ``OpenClass`` that can be used to implement open classes. If
+a class ``A`` of that metaclass is created, it acts as a normal class and
+should be subclassable normally. However, when a subclass of the special name
+``__enhance__`` of the class is created, the attributes in the subclass are
+added to ``A`` instead of actually making a new class. There is a test given
+for this in ``blatt2.py``, however you probably have to write more.
+
+Aufgabe 4
 ---------
 
 A possible implementation of the forward part of the Burrows-Wheeler
