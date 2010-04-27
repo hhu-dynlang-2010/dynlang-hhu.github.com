@@ -24,7 +24,7 @@ Aufgabe 1
 
 Aufgabe 2
 ---------
-(3 Punkte)
+(2 Punkte)
 
 Change ``mygettattr`` from last lecture to add a way to add "virtual"
 attributes to types without changing the type itself, which are only seen
@@ -44,7 +44,7 @@ for this in ``blatt2.py``, however you probably have to write more.
 
 Aufgabe 4
 ---------
-(2 Punkte)
+(3 Punkte)
 
 A possible implementation of the forward part of the Burrows-Wheeler
 transformation (Aufgabe 4 Blatt 1) is given in ``blatt2.py``. However, it has
