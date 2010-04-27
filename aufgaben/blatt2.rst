@@ -5,9 +5,9 @@ Dynamic Languages - Übungen Blatt 2
 :Abgabedatum: ``3. Mai 2010``
 
 
-Aufgabe 1
----------
-(2 Punkte)
+Aufgabe 1 (2 Punkte)
+--------------------
+
 
 1. Write a function that takes a string and computes a nested dictionary from it.
    The goal is to find out which words follow another word in this string.
@@ -22,18 +22,18 @@ Aufgabe 1
    occurrences.
 
 
-Aufgabe 2
----------
-(2 Punkte)
+Aufgabe 2 (2 Punkte)
+----------------------
+
 
 Change ``mygettattr`` from last lecture to add a way to add "virtual"
 attributes to types without changing the type itself, which are only seen
 when using ``mygettattr``.  These overrides can be added with a helper
 functions. The test functions are given in ``blatt2.py``.
 
-Aufgabe 3
----------
-(3 Punkte)
+Aufgabe 3 (3 Punkte)
+---------------------
+
 
 Write a metaclass ``OpenClass`` that can be used to implement open classes. If
 a class ``A`` of that metaclass is created, it acts as a normal class and
@@ -42,9 +42,9 @@ should be subclassable normally. However, when a subclass of the special name
 added to ``A`` instead of actually making a new class. There is a test given
 for this in ``blatt2.py``, however you probably have to write more.
 
-Aufgabe 4
----------
-(3 Punkte)
+Aufgabe 4 (3 Punkte)
+--------------------
+
 
 A possible implementation of the forward part of the Burrows-Wheeler
 transformation (Aufgabe 4 Blatt 1) is given in ``blatt2.py``. However, it has
