@@ -64,6 +64,16 @@ Blatt 1
 .. __: aufgaben/blatt1.pdf
 .. __: aufgaben/blatt1.py
 
+Blatt 2
+--------
+
+- `Blatt 2`__, bis zum 3. Mai 2010.
+- dazugehörige `Test-Datei`__, sowie `Test-Daten`__
+
+.. __: aufgaben/blatt2.pdf
+.. __: aufgaben/blatt2.py
+.. __: aufgaben/faust_1
+
 .. raw:: html
 
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.

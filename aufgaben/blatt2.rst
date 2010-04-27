@@ -2,8 +2,7 @@
 Dynamic Languages - Übungen Blatt 2
 =======================================
 
-:Abgabedatum: 13. November 2008
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
+:Abgabedatum: ``3. Mai 2010``
 
 
 Aufgabe 1
@@ -32,7 +31,7 @@ Aufgabe 2
 
 2. Write a metaclass that exposes the overriding behaviour in a nice way. All
    the attributes of the class are to be added to the base type of the type
-   class. The test functions are given in ``aufgaben/blatt2.py``. 
+   class. The test functions are given in ``blatt2.py``.
 
 
 Aufgabe 3
