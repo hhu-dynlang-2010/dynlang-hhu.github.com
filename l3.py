@@ -1,40 +1,30 @@
-class NoMatch(Exception):
-    pass
-
-class State1(object):
+class State0(object):
+    final = True
     def transition(self, c):
         if c == "a":
-            self.__class__ = State2
-        else:
-            raise NoMatch
+            self.__class__ = State1
+            return True
+        return False
 
-    def is_final(self):
-        return True
-
-
-class State2(object):
+class State1(object):
+    final = False
     def transition(self, c):
         if c == "b":
-            self.__class__ = State1
-        else:
-            raise NoMatch
-
-    def is_final(self):
+            self.__class__ = State0
+            return True
         return False
 
 def match(s):
-    machine = State1()
+    state = State0()
     for c in s:
-        try:
-            machine.transition(c)
-        except NoMatch:
+        if not state.transition(c):
             return False
-    return machine.is_final()
+    return state.final 
+
 
 def test_match():
-    assert match("ababab") == True
-    assert match("abababababab") == True
-    assert match("aba") == False
-    assert match("abac") == False
-
+    assert match("")
+    assert match("ababab")
+    assert not match("abc")
+    assert not match("aba")
 

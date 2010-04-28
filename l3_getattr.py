@@ -1,100 +1,102 @@
 import py
 import types
 
-# ____________________________________________________________ 
-# simulate a bound method object using a nested function
-
-def make_method(func, inst):
+def make_method(func, self):
     def method(*args):
-        return func(inst, *args)
+        return func(self, *args)
     return method
 
+BuiltinMethod = object.__setattr__.__class__
 
-# ____________________________________________________________
-# reimplementation of getattr using pure Python
-
-
-BuiltinMethod = list.append.__class__
-
-def mygetattr(inst, attrname):
-    # check whether the attribute is found in the objects dictionary
-    if hasattr(inst, "__dict__") and attrname in inst.__dict__:
-        return inst.__dict__[attrname]
-    cls = inst.__class__
-    # walk up the method-resolution-order to find the attribute on the class
+def mygetattr_in_class(obj, attrname):
+    cls = obj.__class__
     for checkcls in cls.mro():
         if attrname in checkcls.__dict__:
-            x = checkcls.__dict__[attrname]
-            # if the attribute is a method, bind it
-            if isinstance(x, types.FunctionType) or isinstance(x, BuiltinMethod):
-                x = make_method(x, inst)
-            return x
-    # the attribute was not found in a normal way
-    # look for the special method "__getattr__" and call it if found
-    for checkcls in cls.mro():
-        if "__getattr__" in checkcls.__dict__:
-            func = checkcls.__dict__["__getattr__"]
-            return func(inst, attrname)
-    raise AttributeError("attribute %s not found in %s" % (attrname, inst))
+            attr = checkcls.__dict__[attrname]
+            if not isinstance(attr, (types.FunctionType, BuiltinMethod)):
+                return attr
+            return make_method(attr, obj)
+    raise AttributeError("attribute " + attrname + " not found")
 
+
+def mygetattr(obj, attrname):
+    if attrname in obj.__dict__:
+        return obj.__dict__[attrname]
+    try:
+        return mygetattr_in_class(obj, attrname)
+    except AttributeError:
+        return mygetattr_in_class(obj, "__getattr__")(attrname)
 
 def test_mygetattr():
-    class C(object):
-        a = 5
-        def f(self):
-            return 42
-    c = C()
-    assert mygetattr(c, "a") == 5
-    c.x = 31
-    assert mygetattr(c, "x") == 31
-    c.a = 55
-    assert mygetattr(c, "a") == 55
-    meth = mygetattr(c, "f")
-    assert meth() == 42
+    class A(object):
+        y = 15
+        def f(self, x):
+            old = self.x
+            self.x = x
+            return old
+    a = A()
+    a.x = 7
+    assert mygetattr(a, "x") == 7
+    assert mygetattr(a, "y") == 15
+    py.test.raises(AttributeError, "mygetattr(a, 'blablabla')")
+    m = mygetattr(a, "f")
+    v = m(5)
+    assert v == 7
 
-def test_mygetattr_nodict():
-    l = []
-    append = mygetattr(l, "append")
-    append(1)
-    append(2)
-    append(3)
-    assert l == [1, 2, 3]
+    assert mygetattr(a, "x") == 5
 
-
-def test___getattr__special_method():
-    class C(object):
+def test_mygetattr___getattr__():
+    class B(object):
         def __getattr__(self, attrname):
-            return len(attrname)
-    c = C()
-    assert mygetattr(c, "hello") == 5
+            return attrname
 
-# ____________________________________________________________
-# reimplementation of setattr using pure Python
+    b = B()
+    assert mygetattr(b, "hello") == "hello"
+    b.hello = 15
+    assert mygetattr(b, "hello") == 15
 
-def mysetattr(inst, attrname, value):
-    cls = inst.__class__
-    for checkcls in cls.mro():
-        if "__setattr__" in checkcls.__dict__:
-            func = checkcls.__dict__["__setattr__"]
-            func(inst, attrname, value)
-            return
-    inst.__dict__[attrname] = value
+def test_mygetattr___getattr__2():
+    class B(object):
+        def __getattr__(self, attrname):
+            if attrname == "foo":
+                raise AttributeError
+            return 17
 
+    b = B()
+    assert mygetattr(b, "hello") == 17
+    b.hello = 15
+    assert mygetattr(b, "hello") == 15
+    py.test.raises(AttributeError, "mygetattr(b, 'foo')")
+    py.test.raises(AttributeError, "b.foo")
+
+
+def mysetattr(obj, attrname, value):
+    try:
+        mygetattr_in_class(obj, "__setattr__")(attrname, value)
+    except AttributeError:
+        obj.__dict__[attrname] = value
 
 def test_mysetattr():
-    class C(object):
-        pass
-    c = C()
-    mysetattr(c, "a", 42)
-    assert c.__dict__ == {"a": 42}
+    class A(object):
+        x = 1
 
-def test___setattr__special_method():
-    class D(object):
-        def __setattr__(self, name, value):
-            self.seen.append((name, value))
+    a = A()
+    mysetattr(a, "y", 5)
+    assert a.y == 5
 
-    d = D()
-    d.__dict__["seen"] = []
-    mysetattr(d, "a", 42)
-    assert d.seen == [("a", 42)]
-    py.test.raises(AttributeError, "d.a")
+    assert a.x == 1
+    mysetattr(a, "x", 6)
+    assert a.x == 6
+    assert A.x == 1
+
+def test_mysetattr__setattr__():
+    class A(object):
+        def __setattr__(self, attrname, value):
+            value += 1
+            self.__dict__[attrname] = value
+    a = A()
+    a.x = 15
+    assert a.x == 16
+
+    mysetattr(a, "x", 27)
+    assert a.x == 28

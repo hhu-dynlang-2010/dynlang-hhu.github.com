@@ -38,53 +38,35 @@
 26
 27
 28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">NoMatch</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">State1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+29</pre></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">State0</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">final</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">def</span> <span class="nf">transition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s">&quot;a&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span> <span class="o">=</span> <span class="n">State2</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">NoMatch</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span> <span class="o">=</span> <span class="n">State1</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">False</span>
 
-    <span class="k">def</span> <span class="nf">is_final</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">True</span>
-
-
-<span class="k">class</span> <span class="nc">State2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">State1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">final</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">def</span> <span class="nf">transition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s">&quot;b&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span> <span class="o">=</span> <span class="n">State1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">NoMatch</span>
-
-    <span class="k">def</span> <span class="nf">is_final</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span> <span class="o">=</span> <span class="n">State0</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">return</span> <span class="bp">False</span>
 
 <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="n">machine</span> <span class="o">=</span> <span class="n">State1</span><span class="p">()</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">State0</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">machine</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        <span class="k">except</span> <span class="n">NoMatch</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">state</span><span class="o">.</span><span class="n">transition</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="n">machine</span><span class="o">.</span><span class="n">is_final</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">state</span><span class="o">.</span><span class="n">final</span> 
+
 
 <span class="k">def</span> <span class="nf">test_match</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;ababab&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span>
-    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;abababababab&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span>
-    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;aba&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">False</span>
-    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;abac&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">False</span>
+    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;ababab&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">match</span><span class="p">(</span><span class="s">&quot;aba&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></body>
 </html>
