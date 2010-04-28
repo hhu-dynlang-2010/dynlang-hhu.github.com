@@ -37,8 +37,6 @@ Bound methods
 - The object ``m`` is called a *bound method*
 - it can be called like a function
 - it is bound to the object out of which it was read
+- the bound method thus takes one less argument than the original method
 - thus reading methods out of objects behave like object-attributes
 
-
-Data Members
-=============
