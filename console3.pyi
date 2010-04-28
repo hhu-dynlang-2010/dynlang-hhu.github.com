@@ -1,7 +1,5 @@
->>> class A(type):
-...     def f(self):
-...          print "hello"
-...                       
+>>> # _____________________________________________________
+>>> # defining and using a metaclass
 >>> class MyType(type):
 ...     def f(self):
 ...          print "hello"
@@ -36,22 +34,12 @@ AttributeError: 'A' object has no attribute 'mro'
 [<class '__main__.A'>, <type 'object'>]         
 >>> bool.mro()                                  
 [<type 'bool'>, <type 'int'>, <type 'object'>]  
->>> class A(object):                            
-...     pass                                    
-...                                             
->>> class B(object):                            
-...     pass                                    
-...                                             
->>> B.__base__
-<type 'object'>
->>> B.__base__ = A
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: readonly attribute        
->>> B.__bases__ = (A, )
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: __bases__ assignment: 'A' deallocator differs from 'object'
+>>>
+>>>
+>>>
+>>> # _____________________________________________________
+>>> # changing the __bases__ of a class
+>>>
 >>> class A(object):                                                  
 ...     pass                                                          
 ...                                                                   
@@ -64,61 +52,25 @@ TypeError: __bases__ assignment: 'A' deallocator differs from 'object'
 >>> C.__bases__ = (B, )
 >>>                    
 >>>                    
->>> class Meta(type):
-...     def __init__(self, class B(A):
-  File "<stdin>", line 2              
-    def __init__(self, class B(A):    
-                           ^          
-SyntaxError: invalid syntax           
->>> ...     pass                      
-  File "<stdin>", line 1              
-    ...     pass                      
-    ^                                 
-SyntaxError: invalid syntax           
 >>>                                   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
->>> class Meta(type):
-...     def __init__(self, class B(A):
-  File "<stdin>", line 2              
-    def __init__(self, class B(A):    
-                           ^          
-SyntaxError: invalid syntax           
->>>     def __init__(self, class B(A):
-  File "<stdin>", line 1              
-    def __init__(self, class B(A):    
-    ^                                 
-IndentationError: unexpected indent   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
->>>                                   
+>>> # _____________________________________________________
+>>> # a printing metaclass
 >>>                                   
 >>>                                   
 >>> class Meta(type):
 ...     def __init__(self, name, bases, dct):
 ...          print "creating class", name, "with base", bases[0]
-...          dct["hello"] = 1                                   
 ...          type.__init__(self, name, bases, dct)
 ...                                               
->>> class B(object):                              
-...                                               
-  File "<stdin>", line 2                          
-
-    ^
-IndentationError: expected an indented block
 >>>
 >>> class B(object):
 ...     __metaclass__ = Meta
 ...
 creating class B with base <type 'object'>
 >>>
+>>>
+>>> # _____________________________________________________
+>>> # changing the .__class__ of an instance
 >>>
 >>> class A(object):
 ...     pass
@@ -140,6 +92,7 @@ creating class B with base <type 'object'>
 >>>
 >>>
 >>> #______________________________________________________
+>>> # bound method objects
 >>>
 >>> class A(object):
 ...     def f(self, x):
@@ -165,6 +118,7 @@ creating class B with base <type 'object'>
 >>>
 >>>
 >>> #______________________________________________________
+>>> # a class with a __getattr__
 >>>
 >>>
 >>> class A(object):

@@ -51,6 +51,21 @@ Material
 .. __: exercise.pdf
 .. __: http://www.cafepy.com/article/python_types_and_objects/contents.html
 
+28.4.2010: Attribute-Based Object-Orientation
+--------------------------------------------------
+
+- `Demo program`__ with state machine changing the ``.__class__`` (`.py Datei`__).
+- `console session`__
+- Slides for `Lecture 2`__
+- `Demo program`__, implementing ``mygetattr`` and ``mysetattr`` (`.py Datei`__).
+
+
+.. __: l3.html
+.. __: l3.py
+.. __: console3.html
+.. __: l3.pdf
+.. __: l3_getattr.html
+.. __: l3_getattr.py
 
 Übungsblätter
 =============
