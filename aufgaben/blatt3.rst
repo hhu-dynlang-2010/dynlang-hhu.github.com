@@ -52,8 +52,9 @@ way that the common characters need less bits than the less common ones:
 
 ``http://en.wikipedia.org/wiki/Huffman_coding``
 
-Implement a Huffman encoder and decoder. See the tests in ``blatt3.py``. You
-will need the following functions:
+Implement a Huffman encoder and decoder. For this you will have to implement
+classes that can represent the huffman trees.  You will also need the following
+functions:
 
 - ``make_tree`` which turns a dictionary mapping characters to frequencies into a huffman tree.
 
@@ -62,3 +63,5 @@ will need the following functions:
 - ``encode`` which encodes a string given such a mapping.
 
 - ``decode`` which decodes an encoded string given a huffman tree.
+
+See the tests in ``blatt3.py``.
