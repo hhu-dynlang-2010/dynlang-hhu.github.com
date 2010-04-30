@@ -1,35 +1,3 @@
-
-def test_logging_proxy_simple():
-    class A(object):
-        def __init__(self, a):
-            self.a = a
-
-        def f(self, x):
-            result = self.a
-            self.a = x
-            return result
-
-    a = A(1)
-    p = LoggingProxy(a)
-    assert p.a == 1
-    attr = p.f(10)
-    assert attr == 1
-    assert p.a == 10
-    assert get_proxy_log(p) == ["a", "f", "a"]
-
-def test_logging_proxy_special():
-    p = LoggingProxy(41.0)
-    assert p + 2 == 43.0
-    assert p - 2 == 39.0
-    assert p == 41.0
-    assert p
-    assert p * 2 == 82.0
-    assert p // 2 == 20.0
-    assert p > 1.0
-    assert get_proxy_log(p) == ["__add__", "__sub__", "__eq__", "__nonzero__",
-                                "__mul__", "__floordiv__", "__gt__"]
-
-
 # ____________________________________________________________
 
 
@@ -78,6 +46,7 @@ def test_life_string():
 
 
 def test_life_big():
+    import time
     state = set([        (0,-1), (1,-1),
                  (-1,0), (0,0),
                          (0,1)          ])
@@ -86,7 +55,53 @@ def test_life_big():
         if i < 200:
             print '-'*80
             print lifestring(state)
-            import time; time.sleep(0.1)
+            time.sleep(0.1)
         state = lifestep(state)
     resulting_string = lifestring(state)    # big! about 500x500...
     assert hash(resulting_string) == 1756931965
+
+
+SQUARE = set([(0,0), (0,1),
+              (1,0), (1,1)])
+
+def test_from_life_string():
+    assert from_lifestring("") == set()
+    assert from_lifestring("X") == set([(0,0)])
+    assert from_lifestring("X X") == set([(0, 0), (0, 2)])
+
+    assert from_lifestring("XX\nXX") == SQUARE
+    assert from_lifestring("XX\nX ") == set([(0,0), (0,1), (1,0)])
+
+
+# ____________________________________________________________
+# Aufgabe 3
+
+def test_make_coding():
+    freq = {"a": 1, "b": 2, "c": 5, "d": 18}
+    tree = make_tree(freq)
+    assert tree.right.value == "d"
+    assert tree.left.right.value == "c"
+    assert tree.left.left.right.value == "b"
+    assert tree.left.left.left.value == "a"
+
+def test_mapping():
+    freq = {"a": 1, "b": 2, "c": 5, "d": 18}
+    tree = make_tree(freq)
+    mapping = make_mapping(tree)
+    assert mapping["a"] == "000"
+    assert mapping["b"] == "001"
+    assert mapping["c"] == "01"
+    assert mapping["d"] == "1"
+
+def test_encode():
+    freq = {"a": 1, "b": 2, "c": 5, "d": 18}
+    tree = make_tree(freq)
+    mapping = make_mapping(tree)
+    s = encode(mapping, "ddaccddb")
+    assert s == "11000010111001"
+
+def test_encode():
+    freq = {"a": 1, "b": 2, "c": 5, "d": 18}
+    tree = make_tree(freq)
+    s = decode(tree, "1010001010110100101000101")
+    assert s == "dcadccdcbcadc"

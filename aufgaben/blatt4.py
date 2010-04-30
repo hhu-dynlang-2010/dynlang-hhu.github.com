@@ -1,14 +1,34 @@
-SQUARE = set([(0,0), (0,1),
-              (1,0), (1,1)])
 
-def test_from_life_string():
-    assert from_lifestring("") == set()
-    assert from_lifestring("X") == set([(0,0)])
-    assert from_lifestring("X X") == set([(0, 0), (0, 2)])
 
-    assert from_lifestring("XX\nXX") == SQUARE
-    assert from_lifestring("XX\nX ") == set([(0,0), (0,1), (1,0)])
+def test_logging_proxy_simple():
+    class A(object):
+        def __init__(self, a):
+            self.a = a
 
+        def f(self, x):
+            result = self.a
+            self.a = x
+            return result
+
+    a = A(1)
+    p = LoggingProxy(a)
+    assert p.a == 1
+    attr = p.f(10)
+    assert attr == 1
+    assert p.a == 10
+    assert get_proxy_log(p) == ["a", "f", "a"]
+
+def test_logging_proxy_special():
+    p = LoggingProxy(41.0)
+    assert p + 2 == 43.0
+    assert p - 2 == 39.0
+    assert p == 41.0
+    assert p
+    assert p * 2 == 82.0
+    assert p // 2 == 20.0
+    assert p > 1.0
+    assert get_proxy_log(p) == ["__add__", "__sub__", "__eq__", "__nonzero__",
+                                "__mul__", "__floordiv__", "__gt__"]
 
 
 # ___________________________________________________________________

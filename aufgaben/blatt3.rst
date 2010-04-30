@@ -1,5 +1,5 @@
 =======================================
-Dynamic Languages - Übungen Blatt 3
+Dynamic Languages - �bungen Blatt 3
 =======================================
 
 :Abgabedatum: ``10. Mai 2010``
@@ -8,7 +8,7 @@ Dynamic Languages - Übungen Blatt 3
 Aufgabe 1 - Game of Life
 ------------------------
 
-(3 Punkte)
+(2 Punkte)
 
 Implement a Game of Life simulation:
 http://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens
@@ -42,10 +42,36 @@ Aufgabe 2 - Pygame
    the pygame viewer. There is an example file ``factory.life``.
 
 
-Aufgabe 3 - Fibonacci Folge
+
+Aufgabe 3 - Huffman Coding
 --------------------------
 
-(1 Punkt)
+(3 Punkte)
+
+Huffman Coding is a way to encode sequences of characters into bits in such a
+way that the common characters need less bits than the less common ones:
+
+``http://en.wikipedia.org/wiki/Huffman_coding``
+
+Implement a Huffman encoder and decoder. For this you will have to implement
+classes that can represent the huffman trees.  You will also need the following
+functions:
+
+- ``make_tree`` which turns a dictionary mapping characters to frequencies into a huffman tree.
+
+- ``make_mapping`` which turns a tree into a dictionary mapping input characters to strings of ``0s`` and ``1s``.
+
+- ``encode`` which encodes a string given such a mapping.
+
+- ``decode`` which decodes an encoded string given a huffman tree.
+
+See the tests in ``blatt3.py``.
+
+
+Aufgabe 4 - Fibonacci Folge
+--------------------------
+
+(2 Punkte)
 
 In Ruby the Hash constructor can take a block as an optional parameter. This
 block is executed when a key is accessed that does not correspond to a hash
@@ -53,4 +79,3 @@ entry (see http://ruby-doc.org/ruby-1.9/classes/Hash.html#M000369). Using this
 feature implenment a Hash that calculates the fibonacci sequence up to the
 value of the accessed key. Also take advantage of the Hash to implement
 memoization.
-
