@@ -8,7 +8,7 @@ Dynamic Languages - Übungen Blatt 3
 Aufgabe 1 - Game of Life
 ------------------------
 
-(3 Punkte)
+(2 Punkte)
 
 Implement a Game of Life simulation:
 http://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens
@@ -42,3 +42,23 @@ Aufgabe 2 - Pygame
    the pygame viewer. There is an example file ``factory.life``.
 
 
+Aufgabe 3 - Huffman Coding
+--------------------------
+
+(3 Punkte)
+
+Huffman Coding is a way to encode sequences of characters into bits in such a
+way that the common characters need less bits than the less common ones:
+
+``http://en.wikipedia.org/wiki/Huffman_coding``
+
+Implement a Huffman encoder and decoder. See the tests in ``blatt3.py``. You
+will need the following functions:
+
+- ``make_tree`` which turns a dictionary mapping characters to frequencies into a huffman tree.
+
+- ``make_mapping`` which turns a tree into a dictionary mapping input characters to strings of ``0s`` and ``1s``.
+
+- ``encode`` which encodes a string given such a mapping.
+
+- ``decode`` which decodes an encoded string given a huffman tree.
