@@ -100,7 +100,7 @@ def test_encode():
     s = encode(mapping, "ddaccddb")
     assert s == "11000010111001"
 
-def test_encode():
+def test_decode():
     freq = {"a": 1, "b": 2, "c": 5, "d": 18}
     tree = make_tree(freq)
     s = decode(tree, "1010001010110100101000101")
