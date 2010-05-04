@@ -69,7 +69,7 @@ See the tests in ``blatt3.py``.
 
 
 Aufgabe 4 - Fibonacci Folge
---------------------------
+---------------------------
 
 (2 Punkte)
 
