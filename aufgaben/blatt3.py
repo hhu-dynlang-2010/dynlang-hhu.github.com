@@ -58,7 +58,12 @@ def test_life_big():
             time.sleep(0.1)
         state = lifestep(state)
     resulting_string = lifestring(state)    # big! about 500x500...
-    assert hash(resulting_string) == 1756931965
+    import sys
+    h = hash(resulting_string)
+    if sys.version_info < (2, 6):
+        assert h == 1756931965
+    else:
+        assert h == 5085529549835904893
 
 
 SQUARE = set([(0,0), (0,1),
