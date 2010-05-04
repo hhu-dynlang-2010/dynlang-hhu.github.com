@@ -77,5 +77,4 @@ In Ruby the Hash constructor can take a block as an optional parameter. This
 block is executed when a key is accessed that does not correspond to a hash
 entry (see http://ruby-doc.org/ruby-1.9/classes/Hash.html#M000369). Using this
 feature implenment a Hash that calculates the fibonacci sequence up to the
-value of the accessed key. Also take advantage of the Hash to implement
-memoization.
+value of the accessed key. Running time should not be exponential.
