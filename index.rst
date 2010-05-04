@@ -89,6 +89,20 @@ Blatt 2
 .. __: aufgaben/blatt2.py
 .. __: aufgaben/faust_1
 
+Blatt 3
+--------
+
+- `Blatt 3`__, bis zum 10. Mai 2010.
+- dazugehörige `Test-Datei`__, sowie `Ruby-Test-Datei`__
+- `pygame Test-Datei`__, `pygame Webseite`__
+
+.. __: aufgaben/blatt3.pdf
+.. __: aufgaben/blatt3.py
+.. __: aufgaben/blatt3.rb
+.. __: aufgaben/pygame_demo.py
+.. __: http://pygame.org
+
+
 .. raw:: html
 
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.
