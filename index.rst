@@ -115,6 +115,9 @@ Blatt 2
 Blatt 3
 --------
 
+Hinweis: Für Aufgabe 2.1 genügt es einen festen Ausschnitt des Feldes in dem zu
+implementierenden Viewer darzustellen.
+
 - `Blatt 3`__, bis zum 10. Mai 2010.
 - dazugehörige `Test-Datei`__, sowie `Ruby-Test-Datei`__
 - `pygame Test-Datei`__, `pygame Webseite`__
