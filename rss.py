@@ -1,3 +1,4 @@
+# encoding: utf-8
 import datetime
 import PyRSS2Gen
 
@@ -9,6 +10,12 @@ rss = PyRSS2Gen.RSS2(
     lastBuildDate = datetime.datetime.now(),
 
     items = [
+       PyRSS2Gen.RSSItem(
+         title = "(Blatt 3) Hinweis: Für Aufgabe 2.1 genügt es einen festen Ausschnitt des Feldes in dem zu implementierenden Viewer darzustellen.",
+         pubDate = datetime.datetime(2010, 5, 8, 12, 15)),
+       PyRSS2Gen.RSSItem(
+         title = "Uploaded material for lecture 4 (Ruby)",
+         pubDate = datetime.datetime(2010, 5, 8, 12, 10)),
        PyRSS2Gen.RSSItem(
          title = "Exercises week 3",
          pubDate = datetime.datetime(2010, 5, 4, 9, 50)),
