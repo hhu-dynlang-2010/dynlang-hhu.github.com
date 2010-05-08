@@ -67,6 +67,29 @@ Material
 .. __: l3_getattr.html
 .. __: l3_getattr.py
 
+5.5.2010: Ruby
+--------------------------------------------------
+
+- Slides for `Lecture`__ (PDF-Version of the `Slides`__)
+- `Object model`__ graphic
+- `Class definition`__ example
+- `Open classes and operator definition`__ (Vector) example
+- `Method Missing`__ (PyObject) example
+- `Block`__ example
+- `MyMap`__ example using blocks
+- Useful links: `RSpec`__, `Ruby`__
+
+.. __: http://hhu-dynlang-ruby.heroku.com
+.. __: ruby/l4.pdf
+.. __: ruby/objmodel.png
+.. __: ruby/a.rb
+.. __: ruby/vector.rb
+.. __: ruby/py_object.rb
+.. __: ruby/block.rb
+.. __: ruby/my_map.rb
+.. __: http://rspec.info/
+.. __: http://www.ruby-lang.org
+
 Übungsblätter
 =============
 
