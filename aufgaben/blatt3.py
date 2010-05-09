@@ -58,12 +58,10 @@ def test_life_big():
             time.sleep(0.1)
         state = lifestep(state)
     resulting_string = lifestring(state)    # big! about 500x500...
-    import sys
-    h = hash(resulting_string)
-    if sys.version_info < (2, 6):
-        assert h == 1756931965
-    else:
-        assert h == 5085529549835904893
+
+    import hashlib
+    h = hashlib.md5(resulting_string).hexdigest()
+    assert h == '274cb707b8579bb5a0efbc1b56b0de59'
 
 
 SQUARE = set([(0,0), (0,1),
@@ -72,7 +70,7 @@ SQUARE = set([(0,0), (0,1),
 def test_from_life_string():
     assert from_lifestring("") == set()
     assert from_lifestring("X") == set([(0,0)])
-    assert from_lifestring("X X") == set([(0, 0), (0, 2)])
+    assert from_lifestring("X X") == set([(0, 0), (2, 0)])
 
     assert from_lifestring("XX\nXX") == SQUARE
     assert from_lifestring("XX\nX ") == set([(0,0), (0,1), (1,0)])
