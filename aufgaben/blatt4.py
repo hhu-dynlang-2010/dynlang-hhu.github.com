@@ -1,4 +1,5 @@
-
+# ___________________________________________________________________
+# Aufgabe 1
 
 def test_logging_proxy_simple():
     class A(object):
@@ -32,7 +33,7 @@ def test_logging_proxy_special():
 
 
 # ___________________________________________________________________
-# prototypes
+# prototypes - Aufgabe 2
 
 import py
 

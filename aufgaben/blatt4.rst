@@ -2,17 +2,20 @@
 Dynamic Languages - Übungen Blatt 4
 =======================================
 
-:Abgabedatum: 27. November 2008
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
+:Abgabedatum: ``17. Mai 2010``
 
 Aufgabe 1 - Proxies
 -------------------
 
-Implement a logging proxy object. Its constructor takes an arbitrary
-object. The proxy is supposed to keep a list of all attribute that were
+(3 Punkte)
+
+Implement a logging proxy class. Its constructor takes an arbitrary
+object. The proxy object is supposed to behave as much as possible as the
+original object. In addition, the proxy is supposed to keep a list of all
+attribute that were
 accessed on the object, including special methods, in order of access.
-The log can be accessed using a global function ``get_proxy_log``. The
-test functions are given in ``aufgaben/blatt3.py``.
+The log can be accessed using a global function ``get_proxy_log``. Some
+test functions are given in ``blatt4.py``.
 
 In addition, write another test function with a proxy around a
 dictionary, testing at least the special methods ``__getitem__`` and
@@ -26,6 +29,8 @@ methods inside the class programmatically (with a loop).
 
 Aufgabe 2 - Prototypes
 ----------------------
+
+(4 Punkte)
 
 The point of this exercise is to explore a different approach to object-oriented
 programming, called prototype-based programming. In prototype-based programming
@@ -68,6 +73,8 @@ behaviour and write a test for it.
 
 Aufgabe 3 - Lua tables
 ----------------------
+
+(3 Punkte)
 
 The Lua programming language has a single data structure called *table*
 instead of Python's *list* and *dict*.  A table is a dictionary-like
