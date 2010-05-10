@@ -13,7 +13,7 @@ rss = PyRSS2Gen.RSS2(
          title = "(Blatt 3) Korrigierte Version von blatt3.py",
          pubDate = datetime.datetime(2010, 5, 10, 11, 15)),
        PyRSS2Gen.RSSItem(
-         title = "(Blatt 3) factory.life verlinkt.",
+         title = "(Blatt 3) Uploaded missing file 'factory.life.",
          pubDate = datetime.datetime(2010, 5, 10, 11, 15)),
        PyRSS2Gen.RSSItem(
          title = "(Blatt 3) Hinweis: Fuer Aufgabe 2.1 genuegt es einen festen Ausschnitt des Feldes in dem zu implementierenden Viewer darzustellen.",
