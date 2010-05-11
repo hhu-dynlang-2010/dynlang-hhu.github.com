@@ -130,10 +130,21 @@ implementierenden Viewer darzustellen.
 .. __: aufgaben/pygame_demo.py
 .. __: http://pygame.org
 
+Blatt 4
+--------
+
+- `Blatt 4`__, bis zum 17. Mai 2010.
+- dazugehörige `Test-Datei`__
+- Datei `factory.life`__
+- `pygame Test-Datei`__, `pygame Webseite`__
+
+.. __: aufgaben/blatt4.pdf
+.. __: aufgaben/blatt4.py
 
 .. raw:: html
 
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.
+
 
 ..
     31.10.08: Python's Object Model
