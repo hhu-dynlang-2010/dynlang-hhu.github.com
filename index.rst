@@ -135,8 +135,6 @@ Blatt 4
 
 - `Blatt 4`__, bis zum 17. Mai 2010.
 - dazugehörige `Test-Datei`__
-- Datei `factory.life`__
-- `pygame Test-Datei`__, `pygame Webseite`__
 
 .. __: aufgaben/blatt4.pdf
 .. __: aufgaben/blatt4.py
