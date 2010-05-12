@@ -165,4 +165,4 @@ def test_override_clone():
     # default clone is used here
     x3 = x2.clone()
     assert x3.distance == 2
-    assert x3.a == 23
+    assert x3.a == 24
