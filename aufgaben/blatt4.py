@@ -150,7 +150,6 @@ def test_override_clone():
         def clone(self):
             class cloned:
                 __metaclass__ = ProtoMeta
-                clone = self.clone
                 distance = self.distance + 1
                 a = self.a
             return cloned
@@ -163,6 +162,7 @@ def test_override_clone():
     assert x2.a == 24
     assert x1.a == 23
 
+    # default clone is used here
     x3 = x2.clone()
-    assert x3.distance == 3
+    assert x3.distance == 2
     assert x3.a == 23
