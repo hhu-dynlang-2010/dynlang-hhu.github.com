@@ -83,7 +83,7 @@ def test_syntax():
     assert x1.a == 1
     x1.a = 2
     assert x1.a == 2
-    
+
     class y:
         __metaclass__ = ProtoMeta
         b = 1
@@ -142,7 +142,7 @@ def test_clone():
     assert x1.a == 1
 
 def test_override_clone():
-    
+
     class x1:
         __metaclass__ = ProtoMeta
         distance = 1
@@ -161,7 +161,8 @@ def test_override_clone():
     x2.a = 24
     assert x2.a == 24
     assert x1.a == 23
-    
+
+    # default clone is used here
     x3 = x2.clone()
-    assert x3.distance == 3
-    assert x3.a == 23
+    assert x3.distance == 2
+    assert x3.a == 24
