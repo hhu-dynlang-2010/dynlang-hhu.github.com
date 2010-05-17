@@ -1,7 +1,7 @@
 digraph G {
     f [shape=box, label="f\l\lx=10\la undefined"]
-    //g [shape=box, label="g\l\ly=10\lb undefined"]
+    g [shape=box, label="g\l\ly=10\lb undefined"]
     //h [shape=box, label="h\l\lz=15"]
-    //f -> g
+    f -> g
     //g -> h
 }

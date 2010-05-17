@@ -1,0 +1,69 @@
+.. include:: <s5defs.txt>
+
+.. |pause| raw:: latex
+
+    \pause
+
+==========================================================
+Different Execution Concepts: Generators and Coroutines
+==========================================================
+
+Stack-Discipline
+===================
+
+.. sourcecode:: python
+
+    def f(x):
+        a = g(x)
+        return a + 1
+
+    def g(y):
+        b = h(y + 5)
+        return b * 2
+
+    def h(z):
+        return z - 1
+
+Execution Stack (1)
+===================
+
+.. image:: figures/l6_a.pdf
+   :scale: 80
+
+Execution Stack (2)
+===================
+
+.. image:: figures/l6_b.pdf
+   :scale: 80
+
+Execution Stack (3)
+===================
+
+.. image:: figures/l6_c.pdf
+   :scale: 80
+
+Execution Stack (4)
+===================
+
+.. image:: figures/l6_d.pdf
+   :scale: 80
+
+Execution Stack (5)
+===================
+
+.. image:: figures/l6_e.pdf
+   :scale: 80
+
+Execution Stack (6)
+===================
+
+.. image:: figures/l6_f.pdf
+   :scale: 80
+
+Stack-Discipline
+=================
+
+- The boxes in the diagrams are called *frames*
+- A frame holds the execution state of a function
+- Frames of functions (in imperative languages) are typically organized as a *stack*
+
