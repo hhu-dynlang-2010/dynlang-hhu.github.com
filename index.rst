@@ -90,6 +90,28 @@ Material
 .. __: http://rspec.info/
 .. __: http://www.ruby-lang.org
 
+12.5.2010: Special Methods
+------------------------------------
+
+- Slides for the Lecture__.
+- `Singleton metaclass`__ (`.py Datei`__)
+- `vector implementation`__ (`.py Datei`__)
+- `double dispatch`__  (`.py Datei`__)
+- `console session`__ about the ``__get__`` special method
+- `examples for get`__: static method and property (`.py Datei`__)
+
+.. __: l5.pdf
+.. __: l5_singleton.html
+.. __: l5_singleton.py
+.. __: l5_vector.html
+.. __: l5_vector.py
+.. __: l5_double_dispatch.html
+.. __: l5_double_dispatch.py
+.. __: console5.html
+.. __: l5_get_examples.html
+.. __: l5_get_examples.py
+
+
 Übungsblätter
 =============
 

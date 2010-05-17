@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="highlight.css" type="text/css">
+</head>
+<body>
+<h2></h2>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># _________________________________________________________</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># override getitem</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>     <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="gp">... </span>         <span class="k">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="s">&quot;abc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="go">abc 12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="go">None 12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="o">.</span><span class="n">__getitem__</span>
+<span class="go">&lt;method &#39;__getitem__&#39; of &#39;dict&#39; objects&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">{&#39;a&#39;: 12}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># _________________________________________________________</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># override comparison</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__cmp__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span><span class="p">:</span>
+<span class="gp">... </span>             <span class="k">return</span> <span class="mi">0</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span><span class="p">:</span>
+<span class="gp">... </span>             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a1</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a2</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a1</span> <span class="o">&lt;</span> <span class="n">a2</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a1</span> <span class="o">&lt;</span> <span class="n">a2</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># _________________________________________________________</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># overriding multiplication, reverse multiplication, NotImplemented</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">pass</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">__mul__</span><span class="p">(</span><span class="n">A</span><span class="p">())</span>
+<span class="go">NotImplemented</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="n">A</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">TypeError: unsupported operand type(s) for *</span>: <span class="n-Identifier">&#39;int&#39; and &#39;A&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">__mul__</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="go">NotImplemented</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__rmul__</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">22.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span> <span class="s">&quot;__mul__ called&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span> <span class="s">&quot;__rmul__ called&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="mi">7</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="go">__mul__ called &lt;__main__.A object at 0x86af22c&gt; &lt;__main__.B object at 0xb74c0a6c&gt;</span>
+<span class="go">__rmul__ called &lt;__main__.B object at 0xb74c0a6c&gt; &lt;__main__.A object at 0x86af22c&gt;</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">*</span> <span class="n">a</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">TypeError: unsupported operand type(s) for *</span>: <span class="n-Identifier">&#39;B&#39; and &#39;A&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="gp">... </span>      <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">__mul__</span> <span class="o">=</span> <span class="n">__mul__</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">*</span> <span class="n">a</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">TypeError: unsupported operand type(s) for *</span>: <span class="n-Identifier">&#39;B&#39; and &#39;A&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># _________________________________________________________</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># overriding call</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Callable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">()</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__call__</span>
+<span class="go">&lt;method-wrapper &#39;__call__&#39; of function object at 0xb74bb80c&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__call__</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__call__</span><span class="o">.</span><span class="n">__call__</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__call__</span><span class="o">.</span><span class="n">__call__</span><span class="o">.</span><span class="n">__call__</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
+<span class="go">&lt;function f at 0xb74bb80c&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__class__</span>
+<span class="go">&lt;type &#39;function&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__call__</span>
+<span class="go">&lt;slot wrapper &#39;__call__&#39; of &#39;function&#39; objects&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__base__</span>
+<span class="go">&lt;type &#39;object&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__base__</span><span class="o">.</span><span class="n">__call__</span>
+<span class="go">&lt;method-wrapper &#39;__call__&#39; of type object at 0x82358a0&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">TypeError</span>: <span class="n-Identifier">f() takes exactly 1 argument (0 given)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">TypeError</span>: <span class="n-Identifier">&#39;object&#39; object is not callable</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">__call__</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">AttributeError</span>: <span class="n-Identifier">&#39;object&#39; object has no attribute &#39;__call__&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">object</span><span class="o">.</span><span class="n">__call__</span>
+<span class="go">&lt;method-wrapper &#39;__call__&#39; of type object at 0x82358a0&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">__call__</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
+<span class="nc">AttributeError</span>: <span class="n-Identifier">&#39;object&#39; object has no attribute &#39;__call__&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># _________________________________________________________</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># __get__ special method</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="gp">... </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">__get__</span>
+<span class="go">&lt;method-wrapper &#39;__get__&#39; of function object at 0xb74bb79c&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">__get__</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">&lt;bound method ?.f of 6&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">48</span>
+</pre></div>
+</td></tr></table></body>
+</html>
