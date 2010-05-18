@@ -8,10 +8,9 @@ class Player(object):
         self.target = (x, y)
 
     def run(self, screen):
-        # this should contain a loop that runs forever, to execute the logic
-        # of this player.  The infinite loop should have a "yield None" to
-        # suspend until the next iteration (i.e. 1/60th of a second).
-        ...
+        while True:
+            # the logic and drawing code of the player should go here
+            yield
 
 
 class Attacker(object):
@@ -21,9 +20,9 @@ class Attacker(object):
         self.y = y
 
     def run(self, screen):
-        # this should contain a loop that runs forever, to execute the logic
-        # of an attacker.
-        ...
+        while True:
+            # the logic and drawing code of the attacker should go here
+            yield
 
 
 title = "My game"
