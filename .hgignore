@@ -1,2 +1,7 @@
 .*\.swp$
+.*\.pyc$
+.*\.aux$
+.*\.log$
+.*\.out$
+.*\.tex$
 .*\.latex$
