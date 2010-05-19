@@ -111,6 +111,21 @@ Material
 .. __: l5_get_examples.html
 .. __: l5_get_examples.py
 
+19.5.2010: Generators and Coroutines
+----------------------------------------
+
+- Slides for the Lecture__.
+- `spreadsheet example`__ (`.py Datei`__)
+- `generator examples`__ (`.py Datei`__)
+- `coroutine examples`__ (`.py Datei`__)
+
+.. __: l6.pdf
+.. __: l6_spreadsheet.html
+.. __: l6_spreadsheet.py
+.. __: l6_generator.html
+.. __: l6_generator.py
+.. __: l6_greenlet.html
+.. __: l6_greenlet.py
 
 Übungsblätter
 =============
