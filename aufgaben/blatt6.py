@@ -1,51 +1,22 @@
 import py
 
+class Klass(object):
+    def __init__(self, name, *parents):
+        self.name = name
+        self.parents = parents
+
+    def getparents(self):
+        return parents
+
+    def get_mro(self):
+        XXX # implement me
+
 def test_simple():
-    x1 = ProtoObject({"a": 1})
-    assert x1.a == 1
-    x1.a = 2
-    assert x1.a == 2
-    assert x1.parents == [default_parent]
-    assert default_parent.parents == []
+    k1 = Klass("a")
+    assert k1.get_mro() == [k1]
+    k2 = Klass("b", Klass("a"))
+    assert k2.get_mro() == [k2, k1]
+    k3 = Klass("c", k2, k1)
+    assert k3.get_mro() == [k3, k2, k1]
 
-    y = ProtoObject({"b": 1, "parents": [x1]})
-    assert y.b == 1
-    assert y.a == 2
-    y.a = 3
-    assert y.a == 3
-    assert x1.a == 3
 
-    x2 = ProtoObject({"c": 41})
-    y.parents = [x2]
-    assert y.b == 1
-    assert y.c == 41
-    py.test.raises(AttributeError, "y.a")
-
-    y.parents = [x1, x2]
-    assert y.a == 3
-    assert y.b == 1
-    assert y.c == 41
-
-# ____________________________________________________________
-
-__metaclass__ = ProtoMeta
-
-def test_mro():
-    class a:
-        x = 5
-        z = 765
-    class b:
-        parents = [a]
-        y = 60
-        z = 764
-    class c:
-        parents = [a]
-        x = 4
-        y = 61
-        z = 763
-    class d:
-        parents = [b, c]
-
-    assert d.x == 4      # and not 5!
-    assert d.y == 60
-    assert d.z == 764

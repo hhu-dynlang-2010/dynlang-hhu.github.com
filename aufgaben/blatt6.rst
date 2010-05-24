@@ -10,6 +10,8 @@ Dynamic Languages - Übungen Blatt 6
 Aufgabe 1 - Sudoku
 ------------------
 
+(5 Punkte)
+
 Write a Sudoku solver.  Use a generator that takes as argument a partial
 board, chooses an unfilled position, and enumerates all valid boards
 that have this position filled.
@@ -17,22 +19,12 @@ that have this position filled.
 Remember to write tests first.
 
 
-Aufgabe 2 - Prototypes (2)
+Aufgabe 2 - C3 Algorithm
 --------------------------
 
-* Modify the solution to Blatt 4, Aufgabe 2 (Prototypes) so that every
-  prototype object has several parents instead of one.  This is done by
-  replacing "parent" by "parents", which is now a list of parent objects
-  (or ``[]`` if none, instead of ``None``).
+(5 Punkte)
 
-  See the exercice for a first test.  Adapt all the other tests from
-  ``blatt4.py``.
-
-* Modify the algorithm looking for attribute by parents to implement
-  proper support for multiple inheritance.  The goal is to make it pass
-  ``test_mro()``, where ``d.x`` should not return 5 (as is done by a
-  simple left-to-right search) but 4.  One such algorithm is as follows.
-  First list the lookup order taken by the simple-minded left-to-right
-  algorithm; in this case, it should be ``d, b, a, c, a``.  Then remove
-  all duplicate objects, keeping only the last one, getting ``d, b, c,
-  a``.  Then do the lookup in that order.
+Implement the C3 superclass linearization algorithm in Python. See
+``http://192.220.96.201/dylan/linearization-oopsla96.html`` for a detailed
+description. One test is given in ``blatt6.py``, but you will have to write
+more tests.
