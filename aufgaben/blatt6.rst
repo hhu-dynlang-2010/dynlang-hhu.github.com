@@ -24,7 +24,8 @@ Aufgabe 2 - C3 Algorithm
 
 (5 Punkte)
 
-Implement the C3 superclass linearization algorithm in Python. See
-``http://192.220.96.201/dylan/linearization-oopsla96.html`` for a detailed
+Implement the C3 superclass linearization algorithm in Python.
+
+See ``http://192.220.96.201/dylan/linearization-oopsla96.html`` for a detailed
 description. One test is given in ``blatt6.py``, but you will have to write
 more tests.
