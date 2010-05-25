@@ -3,8 +3,7 @@
 Dynamic Languages - Übungen Blatt 6
 =======================================
 
-:Abgabedatum: ``11. December 2008``
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
+:Abgabedatum: ``1. Juni 2010``
 
 
 Aufgabe 1 - Sudoku
