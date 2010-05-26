@@ -2,9 +2,7 @@
 Dynamic Languages - Übungen Blatt 7
 =======================================
 
-:Abgabedatum: ``18. December 2008``
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
-
+:Abgabedatum: ``8. Juni 2010``
 
 This are the first in a series of exercises to build an interpreter for a small
 prototype-based language. The parser for the language exists already. To get an
