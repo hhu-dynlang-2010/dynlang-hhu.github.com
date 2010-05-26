@@ -11,6 +11,12 @@ rss = PyRSS2Gen.RSS2(
 
     items = [
        PyRSS2Gen.RSSItem(
+         title = "Uploaded new version of blatt6.py",
+         pubDate = datetime.datetime(2010, 5, 26, 17, 31)),
+       PyRSS2Gen.RSSItem(
+         title = "Uploaded Material for Lecture 7",
+         pubDate = datetime.datetime(2010, 5, 26, 17, 30)),
+       PyRSS2Gen.RSSItem(
          title = "Exercises week 6",
          pubDate = datetime.datetime(2010, 5, 25, 18, 30)),
        PyRSS2Gen.RSSItem(

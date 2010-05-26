@@ -211,7 +211,7 @@ Blatt 6
 --------
 
 - `Blatt 6`__, bis zum 1. Juni 2010.
-- dazugehörige `Test-Datei`__
+- dazugehörige `Test-Datei`__ (**ACHTUNG:** neue Version)
 
 .. __: aufgaben/blatt6.pdf
 .. __: aufgaben/blatt6.py
