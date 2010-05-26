@@ -1,0 +1,63 @@
+.. include:: <s5defs.txt>
+
+======================
+Multiple Inheritance
+======================
+
+Multiple Inheritance
+======================
+
+- single inheritance has limits
+- sometimes it would be good to say an object is one of several things
+- solution: multiple inheritance
+
+Changes
+=====================
+
+- every class inherits from n classes
+- lookup mechanism needs to look in all bases/parents
+- more careful algorithm needed!
+
+Simple Use Cases
+=================
+
+- interfaces
+- mixins (base classes without state)
+ 
+
+Superclass Linearization
+========================
+
+- also known as *class precedence list* or *method resolution order* (mro)
+- how to do lookup?
+- for every class, create a list that describes in which order method lookup is performed
+- interesting criteria:
+
+   - acceptability
+   - observation of local precedence order
+   - monotonicity
+
+Acceptability
+=======================
+
+only take the bit of the class hierarchy starting from the class for which to compute the mro into account
+
+in other words: mro must be a local property
+
+
+Observation of Local Precedence Order
+=====================================
+
+the baseclasses of a class must appear in the right order in its mro
+
+Monotonicity
+=============
+
+the elements of an mro of a base class must be in the same order in the mro of a subclass
+
+
+How to compute the linearization
+================================
+
+ * compute mro from mro of bases
+ * *merge* those mros to ensure monotonicity and local precedence order
