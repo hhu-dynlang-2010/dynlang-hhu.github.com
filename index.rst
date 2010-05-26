@@ -128,7 +128,7 @@ Material
 .. __: l6_greenlet.py
 
 
-19.5.2010: Generators and Coroutines
+26.5.2010: Multiple Inheritance
 ----------------------------------------
 
 - `simple echo server`__ (`.py Datei`__)
