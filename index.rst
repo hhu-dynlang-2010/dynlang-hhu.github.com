@@ -127,6 +127,26 @@ Material
 .. __: l6_greenlet.html
 .. __: l6_greenlet.py
 
+
+19.5.2010: Generators and Coroutines
+----------------------------------------
+
+- `simple echo server`__ (`.py Datei`__)
+- `simple echo client`__ (`.py Datei`__)
+- `echo server using select`__ (`.py Datei`__)
+- `echo server using greenlets`__ (`.py Datei`__)
+- Slides for the Lecture__.
+
+.. __: echoserver-onlyone.html
+.. __: echoserver-onlyone.py
+.. __: echoclient.html
+.. __: echoclient.py
+.. __: echoserver-select.html
+.. __: echoserver-select.py
+.. __: echoserver-greenlet.html
+.. __: echoserver-greenlet.py
+.. __: l7.pdf
+
 Übungsblätter
 =============
 
