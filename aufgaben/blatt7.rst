@@ -2,13 +2,13 @@
 Dynamic Languages - Übungen Blatt 7
 =======================================
 
-:Abgabedatum: ``8. Juni 2010``
+:Abgabedatum: ``15. Juni 2010``
 
 This are the first in a series of exercises to build an interpreter for a small
 prototype-based language. The parser for the language exists already. To get an
 impression of how the language looks like, look at the docstrings in the AST
 node classes and at the tests. All the neccessary files can be found in the
-``aufgaben/simple`` directory. Please don't change any of the existing files,
+``simple_blatt7.zip`` file. Please don't change any of the existing files,
 so that future additions from our side are possible.
 
 You can ignore parents for this week.
@@ -16,6 +16,8 @@ You can ignore parents for this week.
 
 Aufgabe 1 - Basic Object Model
 -------------------------------
+
+(4 Punkte)
 
 Start implementing the prototype-based object model of the language. There are
 three types of objects: integers, "normal" objects and methods. These three
@@ -33,6 +35,8 @@ about this in ``aufgaben/simple/test_objmodel.py``. Write more.
 
 Aufgabe 2 - Simple Interpreter
 -------------------------------
+
+(6 Punkte)
 
 Write a simple interpreter. ``:-)``
 
