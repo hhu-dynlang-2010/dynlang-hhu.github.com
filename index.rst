@@ -216,6 +216,15 @@ Blatt 6
 .. __: aufgaben/blatt6.pdf
 .. __: aufgaben/blatt6.py
 
+Blatt 7
+--------
+
+- `Blatt 7`__, bis zum **15. Juni 2010**.
+- dazugehörige `Datei`__
+
+.. __: aufgaben/blatt7.pdf
+.. __: aufgaben/simple_blatt7.zip
+
 
 .. raw:: html
 
