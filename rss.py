@@ -11,6 +11,9 @@ rss = PyRSS2Gen.RSS2(
 
     items = [
        PyRSS2Gen.RSSItem(
+         title = "Fixed files for Exercises",
+         pubDate = datetime.datetime(2010, 6, 2, 15, 30)),
+       PyRSS2Gen.RSSItem(
          title = "Exercises week 7",
          pubDate = datetime.datetime(2010, 6, 1, 23, 16)),
        PyRSS2Gen.RSSItem(
