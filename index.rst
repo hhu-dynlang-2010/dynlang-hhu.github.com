@@ -147,6 +147,22 @@ Material
 .. __: echoserver-greenlet.py
 .. __: l7.pdf
 
+2.6.2010: Multiple Inheritance – Applications
+----------------------------------------------
+
+- `interface example`__  (`.py Datei`__)
+- `Duck Typing`__ Wikipedia article
+- `mixin example`__  (`.py Datei`__)
+- `pair type multimethod example`__  (`.py Datei`__)
+
+.. __: l8_interface.html
+.. __: l8_interface.py
+.. __: http://en.wikipedia.org/wiki/Duck_typing
+.. __: l8_mixin.html
+.. __: l8_mixin.py
+.. __: l8_pairtype.html
+.. __: l8_pairtype.py
+
 Übungsblätter
 =============
 
