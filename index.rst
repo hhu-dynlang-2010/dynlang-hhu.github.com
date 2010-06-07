@@ -236,7 +236,7 @@ Blatt 7
 --------
 
 - `Blatt 7`__, bis zum **15. Juni 2010**.
-- dazugehörige `Dateien`__ **(Neue Version)**
+- dazugehörige `Dateien`__ **(ganz neue Version)**
 
 .. __: aufgaben/blatt7.pdf
 .. __: aufgaben/simple_blatt7.zip
