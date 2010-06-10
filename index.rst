@@ -163,6 +163,19 @@ Material
 .. __: l8_pairtype.html
 .. __: l8_pairtype.py
 
+9.10.2010: Prototype-Based Object-Orientation
+------------------------------------------------
+
+- `Slides for the Lecture`__.
+- `SELF homepage`__
+- The demo image and the VM can be found on the `download page`__. If the
+  keyboard doesn't work under Linux, try using KDE or XFCE.
+
+.. __: l9.pdf
+.. __: http://selflanguage.org/
+.. __: http://selflanguage.org/download/index.html
+
+
 Übungsblätter
 =============
 
