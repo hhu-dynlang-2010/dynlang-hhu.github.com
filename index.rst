@@ -254,6 +254,15 @@ Blatt 7
 .. __: aufgaben/blatt7.pdf
 .. __: aufgaben/simple_blatt7.zip
 
+Blatt 8
+--------
+
+- `Blatt 8`__, bis zum **22. Juni 2010**.
+- dazugehörige `Dateien`__
+
+.. __: aufgaben/blatt8.pdf
+.. __: aufgaben/simple_blatt8.zip
+
 
 .. raw:: html
 
