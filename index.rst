@@ -163,7 +163,7 @@ Material
 .. __: l8_pairtype.html
 .. __: l8_pairtype.py
 
-9.10.2010: Prototype-Based Object-Orientation
+9.6.2010: Prototype-Based Object-Orientation
 ------------------------------------------------
 
 - `Slides for the Lecture`__.
@@ -174,6 +174,21 @@ Material
 .. __: l9.pdf
 .. __: http://selflanguage.org/
 .. __: http://selflanguage.org/download/index.html
+
+16.6.2010: Smalltalk
+======================
+
+- The slides I used in the lecture can be found on the website `of the SCG at Uni Bern`__.
+- `Squeak homepage`__
+- `Pharo homepage`__
+- `Pharo by Example`__: Introduction to Smalltalk programming. Includes the
+  game presented in the lecture, in Chapter 2.
+
+.. __: http://scg.unibe.ch/teaching/smalltalk
+.. __: http://squeak.org/
+.. __: http://www.pharo-project.org/home
+.. __: http://pharobyexample.org/
+
 
 
 Übungsblätter
