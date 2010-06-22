@@ -2,8 +2,7 @@
 Dynamic Languages – Übungen Blatt 9
 =======================================
 
-:Abgabedatum: ``15. January 2009``
-:Subversion URL: svn://wyvern.cs.uni-duesseldorf.de/dynlang08
+:Abgabedatum: ``29. June 2010``
 
 
 Aufgabe 1 – Methods
