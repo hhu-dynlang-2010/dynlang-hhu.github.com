@@ -288,6 +288,15 @@ Blatt 9
 .. __: aufgaben/blatt9.pdf
 .. __: aufgaben/simple_blatt9.zip
 
+Blatt 10
+--------
+
+- `Blatt 10`__, bis zum **14. Juli 2010**.
+- dazugehörige `Dateien`__
+
+.. __: aufgaben/blatt10.pdf
+.. __: aufgaben/simple_blatt10.zip
+
 .. raw:: html
 
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Unless stated otherwise, the material for the lecture by Carl Friedrich Bolz, Armin Rigo, David Schneider and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Germany License</a>.
