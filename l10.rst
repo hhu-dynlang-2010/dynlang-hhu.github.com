@@ -45,7 +45,7 @@ Dynamic languages
 
 Dynamic languages cannot be fully compiled.
 
-::
+.. sourcecode:: python
 
     def sum(container, initial):
         result = initial
@@ -67,7 +67,7 @@ part of the code.
 Quiz
 ====
 
-...
+.. sourcecode:: python
 
 
 Interpreters in practice
@@ -236,6 +236,7 @@ two languages involved in an interpreter:
 care is needed to not confuse those.
 
 Terminology:
+
 - application-level
 - interpreter-level
 
@@ -286,6 +287,6 @@ PyPy Architecture
 clean separation between object model (called "object space") and bytecode interpreter:
 
 .. image:: figures/interpreterarch.png
-   :scale: 100
+   :scale: 50
 
 

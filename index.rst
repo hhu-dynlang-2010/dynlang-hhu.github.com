@@ -190,6 +190,13 @@ Material
 .. __: http://pharobyexample.org/
 
 
+30.6.2010: Implementing Dynamic Languages
+===============================================
+
+- Slides for the Lecture__.
+
+.. __: l10.pdf
+
 
 Übungsblätter
 =============
