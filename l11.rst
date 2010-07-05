@@ -1,0 +1,103 @@
+.. include:: <s5defs.txt>
+
+============================
+Review of Topics so far
+============================
+
+What is a Dynamic Language?
+===========================
+
+
+What is a Dynamic Language?
+===========================
+
+- dynamic typing
+- reflection
+- "late-bound everything"
+
+
+What is a Dynamic Language?
+===========================
+
+also it is often:
+
+- interactive
+- GC
+- object oriented
+
+
+What is an Object?
+===================
+
+
+What is an Object?
+===================
+
+State + Behaviour
+
+
+Principles of Class-Based OO
+============================================
+
+
+Principles of Class-Based OO
+============================================
+
+1. Everything is an Object
+2. Every Object has a type
+
+
+How do Message Sends Work?
+===========================
+
+
+How do Message Sends Work?
+===========================
+
+ - consist of two steps, *lookup* and *call*
+ - implementation of a message is called "method"
+
+
+What are Possible Lookup Strategies?
+====================================
+
+What are Possible Lookup Strategies?
+====================================
+
+two (independent) distinctions:
+
+ - class vs. prototype-based
+ - single vs. multiple inheritance
+
+
+What are Attribute-Based Programming Languages?
+============================================================
+
+What are Attribute-Based Programming Languages?
+============================================================
+
+ - the steps lookup and call exist separately in the language
+ - the lookup of data attributes must be done as part of lookup
+
+
+What are Special Methods?
+=========================
+
+
+
+What are Special Methods?
+=========================
+
+ - special methods are used to customize the behaviour of objects
+ - are needed in a language of non-uniform syntax
+
+
+What are Generators?
+====================
+
+
+What are Generators?
+====================
+
+ - provide a convenient way to implement an iterator
+ - break normal stack-discipline
