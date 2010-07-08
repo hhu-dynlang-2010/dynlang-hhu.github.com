@@ -176,7 +176,7 @@ Material
 .. __: http://selflanguage.org/download/index.html
 
 16.6.2010: Smalltalk
-======================
+----------------------
 
 - The slides I used in the lecture can be found on the website `of the SCG at Uni Bern`__.
 - `Squeak homepage`__
@@ -191,14 +191,14 @@ Material
 
 
 30.6.2010: Implementing Dynamic Languages
-===============================================
+-----------------------------------------
 
 - Slides for the Lecture__.
 
 .. __: l10.pdf
 
 7.7.2010: Review of Topics so far
-===============================================
+---------------------------------
 
 - Slides for the Lecture__.
 
