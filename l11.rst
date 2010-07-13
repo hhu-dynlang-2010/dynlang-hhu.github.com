@@ -16,8 +16,13 @@ What is a Dynamic Language?
 - "late-bound everything"
 
 
-What is a Dynamic Language?
-===========================
+What is a Dynamic Language? (2)
+===============================
+
+also it is often:
+
+What is a Dynamic Language? (2)
+===============================
 
 also it is often:
 
@@ -101,3 +106,33 @@ What are Generators?
 
  - provide a convenient way to implement an iterator
  - break normal stack-discipline
+
+Implementation of Dynamic Languages
+===================================
+
+Implementation of Dynamic Languages
+===================================
+
+  - Compiler vs. Interpreter
+
+Implementation of Dynamic Languages
+===================================
+
+  - Compiler vs. Interpreter
+  - Compiling Dynamic Languages?
+
+Implementation of Dynamic Languages
+===================================
+
+  - Compiler vs. Interpreter
+  - Compiling Dynamic Languages?
+  - JIT Compilers
+
+Implementation of Dynamic Languages
+===================================
+
+  - Compiler vs. Interpreter
+  - Compiling Dynamic Languages?
+  - JIT Compilers
+  - AST vs. Bytecode Interpreters
+  - Object model
