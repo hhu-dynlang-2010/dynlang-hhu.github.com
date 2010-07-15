@@ -211,7 +211,7 @@ Material
 - Slides about the project__.
 - Slides for the Lecture__.
 
-.. __: project.pdf
+.. __: projekte.pdf
 .. __: pypy.pdf
 
 Übungsblätter
