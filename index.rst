@@ -204,6 +204,16 @@ Material
 
 .. __: l11.pdf
 
+
+14.7.2010: Implementing Dynamic Languages with PyPy
+-----------------------------------------------------
+
+- Slides about the project__.
+- Slides for the Lecture__.
+
+.. __: project.pdf
+.. __: pypy.pdf
+
 Übungsblätter
 =============
 
