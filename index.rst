@@ -11,6 +11,12 @@ Die Vorlesung findet mittwochs um 11-13 Uhr in Raum 25.12.02.33 statt.
 Es gibt zwei Übungstermine, Mittwoch 09-11 und 16-18. Die Übung findet im
 Seminarraum 25.12.02.55 statt. Bitte Laptops mitbringen!
 
+Projekt und Prüfung
+===================
+Das Abgabedatum für das Projekt ist der 20. September 2010 12:00 Uhr.
+
+Die Prüfungen finden zwischen dem 4. und dem 6. Oktober statt.
+
 Material
 ==================
 
